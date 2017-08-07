@@ -24,6 +24,12 @@ if(isset($_GET['page'])){
             
             $page = 'confirmation';
             $title = '';
+            break;        
+        
+        case('admin_panel');
+            
+            $page = 'admin_panel';
+            $title = '';
             break;
         
         default:
