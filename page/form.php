@@ -1,6 +1,5 @@
 <?php
 require_once 'config/Config.php';
-
 if(isset($_POST['send'])){
     
     $name= htmlentities(trim($_POST['name']));
@@ -25,7 +24,6 @@ if(isset($_POST['send'])){
     //If validation is fine new user is saved in database ...  
     
     if($validate->countErrors==0){
-        
         $save =  $db_connection->db->query($insert);
         
         // ... and sends e-mail to user with request for confirmation
