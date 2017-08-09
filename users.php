@@ -16,7 +16,7 @@
                     <?php
 
                     $connection = new DbConnect();
-                    $request = "SELECT * FROM `user`";
+                    $request = "SELECT * FROM `user` WHERE `is_Active` = 1";
                     $result = $connection->db->query($request);
                     $lp=0;
                     while($row = $result->fetch_object()){

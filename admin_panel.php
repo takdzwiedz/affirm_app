@@ -31,21 +31,18 @@ require_once 'lib/function.php';
 
     <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
-            <h3>WYŚLIJ "MOGĘ"</h3>
             <?php 
             include_once 'ican.php'; 
             ?>
         </div>
         
         <div id="menu1" class="tab-pane fade">
-            <h3>UŻYTKOWNICY</h3>
             <?php 
             include_once 'users.php'; 
             ?>
         </div>
 
         <div id="menu2" class="tab-pane fade">
-            <h3>MOGĘ WYSŁANE</h3>
             <?php 
             include_once 'ican_list.php'; 
             ?>

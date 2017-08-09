@@ -17,10 +17,18 @@ body
     color: #fff; 
 }
 
+input 
+{
+    color: blue;
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+    padding: 10px;
+    box-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+    border: none;
+    font-size: 1.3em;
+}
+
 .ican 
 {
-    font-size: 1.2em;
-    color: darkblue;
     text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
     width: 500px; 
     height: 50px
