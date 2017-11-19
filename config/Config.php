@@ -1,11 +1,11 @@
 <?php
 
-define('E_MAIL_ADMIN','artur@mozesz.eu');
+define('E_MAIL_ADMIN','jan.wszedyrowny@mozesz.eu');
 define('SERVER','localhost');
 define('USER','root');
 define('PASSWORD','');
 define('DB','affirm_app');
-define('WITRYNA','http://localhost/affirm_app/');
+define('WITRYNA',"http://localhost/");
 
 define('GREETINGS_MAIL_SUBJECT',"Możesz potwierdzić rejestrację na stronie mogę.org.pl");
 

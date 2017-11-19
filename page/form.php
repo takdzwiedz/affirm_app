@@ -6,7 +6,7 @@ if(isset($_POST['send'])){
     $city=htmlentities(trim($_POST['city']));
     $mail=htmlentities(trim($_POST['mail']));
     $security = sha1(uniqid());
-    $date = date("Y-m-d");
+    $date = date("Y-m-d H:i:s");
     
     //Validation
     
@@ -42,12 +42,15 @@ if(isset($_POST['send'])){
 }
 ?>
 
-<h4>A teraz MOŻESZ się zarejstrować:</h4>
+
 <?php unset ($validate); ?>
-<form method="POST">
-    <input type="text" name="name" placeholder="imie"><br><br>
-    <input type="text" name="city" placeholder="miasto"><br><br>
-    <input type="text" name="mail" id="mail" placeholder="e-mail"><span id="mailSpan"></span><br><br>
-    <button type="submit" class="btn btn-primary" type="submit" name="send" value="Wyślij">Wyślij</button>
-</form>
+    
+        <p>A teraz MOŻESZ się zarejstrować:</p>
+        <p class="youcan">Nie musisz. Możesz.</p>
+        <form method="POST">
+            <input type="text" name="name" placeholder="imię" style="background-repeat: repeat; background-image: none; background-position: 0% 0%;">
+            <input type="text" name="city" placeholder="miasto">
+            <input type="text" name="mail" id="mail" placeholder="e-mail"><span id="mailSpan"></span><br><br>
+            <button type="submit" class="btn btn-primary" type="submit" name="send" value="Wyślij">Wyślij</button>
+        </form>
 

@@ -9,15 +9,15 @@ $account->confAccount($security_check, $mail);
 ?>
 
 
-<h4>Brawo!</h4>
+<p>Brawo!</p>
 <p>
     To wspaniała decyzja!<br> 
     Rozpoczynasz dziś niesamowitą podróż, która odmieni Twoje życie. Zaczynamy?!<br> 
     Jasne, że tak! A teraz przeczytaj i zapamętaj:<br>
 </p>
-    <h3>Możesz zmienić swoje życie!</h3>
+<p><b>Możesz zmienić swoje życie!</b></p>
 <p>
-    Od dzisiaj możesz zacząć przyzwyczajać się do tej myśli.<br>
-    Dobrego,<br>
-    Artur
+    Zacznij przyzwyczajać się do najlepszego!<br>
+   
+<p class="podpis">Gerard</p>
 </p>

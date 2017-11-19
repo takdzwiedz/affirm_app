@@ -15,7 +15,7 @@ if(isset($_POST['send_ican']) && !empty($_POST['ican'])){
 }
 ?>
 <form method="post">
-    <h5>Treść "MOGĘ:</h5>
+    <p>Treść "MOGĘ:</p>
     <input class="ican" type="text" name="ican"><br><br>
     <button type="submit" class="btn btn-primary" type="submit" name="send_ican" value="wyslij">Wyślij</button>
 </form>
