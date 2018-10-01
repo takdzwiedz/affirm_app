@@ -19,5 +19,5 @@ $account->confAccount($security_check, $mail);
 <p>
     Zacznij przyzwyczajać się do najlepszego!<br>
    
-<p class="podpis">Gerard</p>
+<p class="podpis">Artur</p>
 </p>
