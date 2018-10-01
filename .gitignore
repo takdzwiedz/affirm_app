@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 /tmp
 /config/Config.php
+=======
+config/Config.php
+affirm_app.sql
+KOPIA
+>>>>>>> eb6469bb21ac537d4165bb85426722ec139273a2
