@@ -11,9 +11,7 @@
         $haslo = htmlentities($_POST['haslo']);
 
 
-
         $validation = new Validate();
-//        var_dump($login);die();
         $validation->ifEmpty($login, 'login');
         $validation->ifEmpty($haslo, 'password');
 

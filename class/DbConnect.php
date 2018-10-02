@@ -1,20 +1,23 @@
 <?php
 
-class DbConnect{ 
-    
+class DbConnect
+{
+
     public $db;
 
-    function __construct() {
+    function __construct()
+    {
 
-        $this->db = new mysqli(SERVER,USER,PASSWORD,DB);
+        $this->db = new mysqli(SERVER, USER, PASSWORD, DB);
         $this->db->set_charset('utf8');
-        
+
     }
-    
-    function __destruct() {
-        
+
+    function __destruct()
+    {
+
         $this->db->close();
-        
+
     }
-    
+
 }
