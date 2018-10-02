@@ -4,3 +4,4 @@ config/Config.php
 affirm_app.sql
 tmp
 .idea/
+.
