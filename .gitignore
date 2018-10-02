@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 /tmp
 /config/Config.php
-=======
 config/Config.php
 affirm_app.sql
-KOPIA
-<<<<<<< HEAD
->>>>>>> eb6469bb21ac537d4165bb85426722ec139273a2
-=======
 tmp
->>>>>>> 4ad1c3198dbb96cc8bb14f8fead39edf76824633
+.idea/

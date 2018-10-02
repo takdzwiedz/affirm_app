@@ -33,8 +33,8 @@ if(isset($_POST['send'])){
         $message = "Witaj ponownie!<br><br>"
                 . "Aby potwierdzić swoją rejestrację kliknij na <b><a href=\"".WITRYNA."index.php?page=confirmation&mail=$mail&security=$security\">link</a></b>.<br><br>"
                 . "Artur<br><br>"
-                . "PS. Jeżeli nie rejestrowałeś się na stronie moge.org.pl ale zaciekawiło Cię co możesz, też możesz kliknąć na link.<br>"
-                . "PPS. Jeśli nie rejestrowałeś się na stronie moge.org.pl i nie chcesz tego robić, po prostu zignoruj tego mejla. <br>";
+                . "PS. Jeżeli nie rejestrowałeś się na stronie mozesz.eu ale zaciekawiło Cię co możesz, też możesz kliknąć na link.<br>"
+                . "PPS. Jeśli nie rejestrowałeś się na stronie mozesz.eu i nie chcesz tego robić, po prostu zignoruj tego mejla. <br>";
         $sendMail->send($to, GREETINGS_MAIL_SUBJECT, $message);    
         // In the and it displays user page with greetings
         header('Location:index.php?page=thx');
