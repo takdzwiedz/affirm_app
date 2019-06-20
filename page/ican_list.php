@@ -3,10 +3,10 @@
 <table class="table table-bordered">
     <thead>
     <tr>
-        <th>l.p.</th>
+        <th class="lp-col">l.p.</th>
         <td>Treść</td>
-        <td>data</td>
-        <td>godzina</td>
+        <td class="per20">data</td>
+        <td class="per20">godzina</td>
     </tr>
     </thead>
 
@@ -14,7 +14,7 @@
     <?php
 
     $connection = new DbConnect();
-    $request = "SELECT * FROM `affirmation`";
+    $request = "SELECT * FROM `affirmation` ORDER BY `affirmation`.`id_affirmation` DESC";
     $result = $connection->db->query($request);
     $lp = 0;
     while ($row = $result->fetch_object()) {

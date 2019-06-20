@@ -8,19 +8,21 @@ and open the template in the editor.
     Author     : artur
 */
 
-body{
+body {
     background-image: url("../image/clouds.jpg");
     background-size: cover;
     text-align: center;
     font-family: 'Kavivanar', sans-serif;
     background-position: center;
 }
-h1{
+
+h1 {
     margin-top: 30px;
     font-size: 3em;
     color: white;
 }
-.claim{
+
+.claim {
     color: #fff;
     font-weight: 400;
     font-size: 20px;
@@ -28,8 +30,9 @@ h1{
     padding: 10px;
     margin-bottom: 20px;
 }
-.left{
-    background-color:rgba(255,255,255,0.7);
+
+.left {
+    background-color: rgba(255, 255, 255, 0.7);
     width: 420px;
     height: auto;
     border-radius: 5px;
@@ -38,7 +41,8 @@ h1{
     padding: 15px;
     vertical-align: top;
 }
-.left p:nth-child(1),  .left p:nth-child(3) {
+
+.left p:nth-child(1), .left p:nth-child(3) {
     color: #457294;
     text-align: center;
     font-size: 18px;
@@ -51,11 +55,13 @@ h1{
     font-size: 18px;
     font-weight: 700;
 }
+
 .left p:nth-child(2), .left p:nth-child(4), .left p:nth-child(5) {
     color: #457294;
     text-align: center;
     font-size: 14px;
 }
+
 .podpis {
     color: #457294;
     text-align: right;
@@ -64,8 +70,9 @@ h1{
     font-style: italic;
     margin-right: 16px;
 }
-.right{
-    background-color:rgba(255,255,255,0.7);
+
+.right {
+    background-color: rgba(255, 255, 255, 0.7);
     width: 420px;
     height: auto;
     border-radius: 5px;
@@ -79,7 +86,7 @@ h1{
     font-size: 14px;
 }
 
-input{
+input {
     height: 68.5px;
     border-radius: 5px;
     width: 90%;
@@ -87,22 +94,41 @@ input{
     box-sizing: border-box;
     padding: 10px;
     text-align: center;
-    background-color:rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
     border: none;
     position: relative;
-    font-size: 0.8;
+    font-size: 0.8em;
     color: #457294;
     font-family: 'Kavivanar', cursive;
-focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
-
-
 }
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
-input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
-input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 
-button{
+focus:-moz-placeholder {
+    color: transparent;
+}
+
+/* FF 4-18 */
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input:focus:-moz-placeholder {
+    color: transparent;
+}
+
+/* FF 4-18 */
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+/* FF 19+ */
+input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+/* IE 10+ */
+
+button {
     height: 60px;
     border-radius: 5px;
     border: none;
@@ -112,33 +138,59 @@ button{
     margin: 30px;
     font-family: 'Kavivanar', cursive;
 }
+
 button:hover {
     background-color: #c05161;
-    -o-transition:.5s ease-in-out;
-    -ms-transition:.5s ease-in-out;
-    -moz-transition:.5s ease-in-out;
-    -webkit-transition:.5s ease-in-out;
-    transition:.5s  ease-in-out;
+    -o-transition: .5s ease-in-out;
+    -ms-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -webkit-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
 }
 
 q {
-    font-weight:bold;
+    font-weight: bold;
 }
-@media only screen and (max-width: 768px){
+
+.mail-row {
+    column-width: 30px;
+    font-size: 0.3em;
+}
+
+@media only screen and (max-width: 768px) {
 
     .left, .right {
         width: 280px;
 
     }
+
     p {
-        text-align: center!important;
+        text-align: center !important;
     }
-    input{
+
+    input {
         height: 50px;
     }
-    button{
-        height:50px;
+
+    button {
+        height: 50px;
     }
 
+}
 
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.lp-col {
+    width: 5%;
+}
+
+.email-row {
+    font-size: 9px;
+}
+
+.per20 {
+    width: 20%;
 }

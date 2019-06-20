@@ -1,7 +1,5 @@
-/tmp
-/config/Config.php
 config/Config.php
 affirm_app.sql
+KOPIA
 tmp
-.idea/
-.
+.idea
