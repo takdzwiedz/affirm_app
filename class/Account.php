@@ -2,13 +2,11 @@
 
 class Account extends DbConnect
 {
-
     function confAccount($security_check, $mail)
     {
-
         $wynik = $this->db->query($security_check);
 
-        //function confAccount checks if user is exist and if true ...
+        //function confAccount checks if user exist and if true ...
 
         if ($wynik->num_rows == 1) {
 
@@ -27,6 +25,19 @@ class Account extends DbConnect
         } else {
             echo '<span style="color:orange;">Konto zostało już potwierdzone lub niewłaściwe dane potwierdzenia.</span>';
             die();
+        }
+    }
+
+    /*
+     * Function to delete account
+     * */
+    function deleteAccount($security_check)
+    {
+        $wynik = $this->db->query($security_check);
+        $result = $wynik->fetch_row();
+        if ($wynik->num_rows == 1) {
+            $user_delete = "DELETE FROM `user` WHERE `id_user` = '" . $result[0] . "'";
+            $this->db->query($user_delete);
         }
     }
 }
