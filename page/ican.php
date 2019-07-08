@@ -36,7 +36,7 @@ if (isset($_POST['send_ican']) && !empty($_POST['ican'])) {
         ale jest i każdy następny bedzie lepszy. Dziękuję Ci za to, że jesteś ze mną w chwili kolejnej fazy narodzin tego pomysłu - pierwszej wysyłki. Początkowa seria \"Możesz\" będzie miała charakter  testowy.
         Proszę pozostań ze mną, nawet, jeśli niekiedy zdarzy się błąd, dostaniesz kilka mejli naraz lub afiramcje będą się powtarzać. Dzięki temu projektowi uczę się także programowania. Cóż mogę dodać na koniec.
         Jestem bardzo szczęśliwy i chcę Cię tym obdarować.</i><br><br>
-        Jeśli nie chcesz więcej otrzymywać \"możesz\" ode mnie, możesz wypisać się z mozesz.eu klikając na ten <a href=\"" . WITRYNA . "index.php?page=goodbye&mail=$to&security=$security\">link</a>";
+        Jeśli nie chcesz więcej otrzymywać \"możesz\" ode mnie, możesz wypisać się z mozesz.eu klikając na ten <a href=\"" . WITRYNA . "index.php?page=goodbye&mail=$to&security=$security\">link</a>.";
 
         $sendICan->send($to, $subject, $message);
     }
