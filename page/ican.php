@@ -29,14 +29,14 @@ if (isset($_POST['send_ican']) && !empty($_POST['ican'])) {
         $genitive = $row->genitive;
 
         $subject = "[MOŻESZ] od Artura Kacprzaka";
-        $message = "Cześć $genitive,<br>" . "<h3>" . $ican . "</h3>" . "<br>Dobrego dnia,<br>Artur Kacprzak<br><br>Dostałaś / Dostałeś tą wiadomość, bo zapisałaś / zapisałeś się na stronie mozesz.eu. Jeśli nie chcesz otrzymywać
-        więcej afirmacji rozpoczynającej się od słowa \"możesz\", napisz do mnie majla na adres a.kacprzak@mozesz.eu<br><br>
+        $message = "Cześć $genitive," . "<h3>" . $ican . "</h3>" . "Dobrego dnia,<br>Artur Kacprzak<br><br>
         <i>P.S. Wiem, że majl wygląda bardzo surowo. Ale to absoutnie pierwsze wysyłane przeze mnie afirmacje od chwili, w której zrodził się ten pomysł.
         Z każdym tygodniem będę poprawiał stronę wizualną i funkcjonalną strony mozesz.eu. Po prostu chciałem wykonać ten pierwszy krok. Jest może jeszcze chwiejny i niepewny, 
         ale jest i każdy następny bedzie lepszy. Dziękuję Ci za to, że jesteś ze mną w chwili kolejnej fazy narodzin tego pomysłu - pierwszej wysyłki. Początkowa seria \"Możesz\" będzie miała charakter  testowy.
         Proszę pozostań ze mną, nawet, jeśli niekiedy zdarzy się błąd, dostaniesz kilka mejli naraz lub afiramcje będą się powtarzać. Dzięki temu projektowi uczę się także programowania. Cóż mogę dodać na koniec.
         Jestem bardzo szczęśliwy i chcę Cię tym obdarować.</i><br><br>
-        Jeśli nie chcesz więcej otrzymywać \"możesz\" ode mnie, możesz wypisać się z mozesz.eu klikając na ten <a href=\"" . WITRYNA . "index.php?page=goodbye&mail=$to&security=$security\">link</a>.";
+        Dostałaś / Dostałeś tą wiadomość, bo zapisałaś / zapisałeś się na stronie mozesz.eu. 
+        Jeśli nie chcesz więcej otrzymywać \"możesz\" ode mnie, możesz wypisać się z mozesz.eu klikając na <a href=\"" . WITRYNA . "index.php?page=goodbye&mail=$to&security=$security\">ten link</a>.";
 
         $sendICan->send($to, $subject, $message);
     }
