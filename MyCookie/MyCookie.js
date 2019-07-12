@@ -8,7 +8,7 @@ $(document).ready(function() {
     var textClose = 'X';
     
     //zmienna textColor definiuje kolor tekstu komunikatu cookies
-    var textColor = 'navy';
+    var textColor = '#457294';
 
     $("#close").click(function() {
         

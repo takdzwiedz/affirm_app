@@ -7,11 +7,11 @@
 	position: fixed;
 	bottom: 0px;
 	min-height: 50px;
-	background-color: #B6CDB9;
+	background-color: rgba(255, 255, 255, 0.7);
 	margin-left: 4%;
 	margin-bottom: 10px;
 	box-shadow: 14px -9px 46px 0px rgba(0, 0, 0, 0.75);
-	border-radius: 3px;
+	border-radius: 5px;
 	width: 90%;
 	border-top: 1px;
 }
@@ -22,7 +22,7 @@
 }
 
 #tekst {
-	width: 90%;
+	width: 95%;
 	text-align: justify;
 	padding: 5px;
 }
