@@ -14,6 +14,7 @@ require_once 'lib/function.php';
     <link rel="stylesheet" href="style/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="style/style.css" rel="stylesheet">
+    <link href="MyCookie/MyCookie.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
     <title>Możesz</title>
 </head>
@@ -79,6 +80,14 @@ require_once 'lib/function.php';
         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
 <script src="script/check_mail.js"></script>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+
+<div id="MyCookie">
+    <div id="tekst"></div>
+    <div id="close"></div>
+</div>
+<script src="MyCookie/MyCookie.js"></script>
 
 </body>
 

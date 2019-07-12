@@ -1,0 +1,37 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#MyCookie {
+	position: fixed;
+	bottom: 0px;
+	min-height: 50px;
+	background-color: #B6CDB9;
+	margin-left: 4%;
+	margin-bottom: 10px;
+	box-shadow: 14px -9px 46px 0px rgba(0, 0, 0, 0.75);
+	border-radius: 3px;
+	width: 90%;
+	border-top: 1px;
+}
+#close {
+	position: absolute;
+	top: 5px;
+	right: 30px;
+}
+
+#tekst {
+	width: 90%;
+	text-align: justify;
+	padding: 5px;
+}
+
+#MyCookie a {
+	text-decoration: none;
+	color: gray;
+}
+#MyCookie a:hover{
+	text-decoration: underline;
+	color: red;
+}
