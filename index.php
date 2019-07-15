@@ -1,5 +1,5 @@
 <?php
-ob_start();
+//ob_start();
 require_once 'config/Config.php';
 require_once 'config/Switch.php';
 require_once 'lib/function.php';
@@ -11,10 +11,10 @@ require_once 'lib/function.php';
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/bootstrap.min.css"
-          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="style/style.css" rel="stylesheet">
-    <link href="MyCookie/MyCookie.css" rel="stylesheet">
+    <link href="style/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="style/style.css" rel="stylesheet" type="text/css">
+    <link href="MyCookie/MyCookie.css" rel="stylesheet" type="text/css">
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
     <title>Możesz</title>
 </head>
@@ -69,26 +69,18 @@ require_once 'lib/function.php';
     </div>
 </div>
 
+    <script src="script/jquery-3.2.1.slim.min.js.pobrane" crossorigin="anonymous"></script>
+    <script src="script/popper.min.js.pobrane" crossorigin="anonymous"></script>
+    <script src="script/bootstrap.min.js.pobrane" crossorigin="anonymous"></script>
+    <script src="script/check_mail.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
 
-<script src="script/jquery-3.2.1.slim.min.js.pobrane"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="script/popper.min.js.pobrane"
-        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-        crossorigin="anonymous"></script>
-<script src="script/bootstrap.min.js.pobrane"
-        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-        crossorigin="anonymous"></script>
-<script src="script/check_mail.js"></script>
-
-<script src="js/jquery-3.1.1.min.js"></script>
-
-<div id="MyCookie">
-    <div id="tekst"></div>
-    <div id="close"></div>
-</div>
-<script src="MyCookie/MyCookie.js"></script>
-
+    <div id="MyCookie">
+        <div id="tekst"></div>
+        <div id="close"></div>
+    </div>
+    <script src="MyCookie/MyCookie.js"></script>
+s
 </body>
 
 </html>
