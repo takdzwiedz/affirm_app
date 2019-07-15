@@ -10,7 +10,7 @@ and open the template in the editor.
 
 body {
     background-image: url("../image/clouds.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
     font-family: 'Kavivanar', sans-serif;
