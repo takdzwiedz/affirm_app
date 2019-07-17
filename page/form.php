@@ -1,20 +1,23 @@
 <?php
 require_once 'config/Config.php';
+
 if (isset($_POST['send'])) {
 
     $name = htmlentities(trim($_POST['name']));
     $city = htmlentities(trim($_POST['city']));
     $mail = htmlentities(trim($_POST['mail']));
+    $regulations = isset($_POST['regulations']) ? 1 : 0;
     $security = sha1(uniqid());
     $date = date("Y-m-d H:i:s");
 
     //Validation
 
     $validate = new Validate();
-    $validate->ifEmpty($name, 'imie');
+    $validate->ifEmpty($name, 'imię');
     $validate->ifEmpty($city, 'miasto');
     $validate->goodEmail($mail, 'e-mail');
     $validate->ifExist($mail);
+    $validate->isChecked($regulations, "Regulamin");
 
     //Data collection to insert to database
 
@@ -45,13 +48,17 @@ if (isset($_POST['send'])) {
 
 <?php unset ($validate); ?>
 
-<p>A teraz MOŻESZ się zarejstrować:</p>
-<p class="youcan">Nie musisz. Możesz.</p>
+<p>A teraz możesz się zarejstrować:</p>
+<p>Nie musisz. Możesz.</p>
 <form method="POST">
-    <input type="text" name="name" placeholder="imię"
-           style="background-repeat: repeat; background-image: none; background-position: 0% 0%;">
-    <input type="text" name="city" placeholder="miasto">
-    <input type="text" name="mail" id="mail" placeholder="e-mail"><span id="mailSpan"></span><br><br>
+    <input type="text" name="name" placeholder="imię" class="name" value="<?php if (isset($_POST['name'])) { echo $_POST['name'];} ?>">
+    <input type="text" name="city" placeholder="miasto" class="city" value="<?php if (isset($_POST['city'])) { echo $_POST['city'];} ?>">
+    <input type="text" name="mail" id="mail" placeholder="e-mail" class="mail" value="<?php if (isset($_POST['mail'])) { echo $_POST['mail'];} ?>"><span id="mailSpan"></span><br><br>
+    <input type="checkbox" name="regulations" id="regulations" class="regulation-checkbox" value="1" <?php if (isset($_POST['regulations'])) { echo "checked";} ?>>
+    <div class="regulation-title">
+        Akceptuję <a href="?page=rodo">warunki regulaminu</a> "Mozesz - skieruj myśli ku najlepszemu".<br>
+
+    </div>
     <button type="submit" class="btn btn-primary" type="submit" name="send" value="Wyślij">Wyślij</button>
 </form>
 

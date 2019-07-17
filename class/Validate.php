@@ -26,7 +26,7 @@ class Validate
     {
 
         if (empty(trim($ciag))) {
-            $this->addError(" $pole");
+            $this->addError("Podaj $pole");
             $this->countErrors++;
         }
 
@@ -35,7 +35,7 @@ class Validate
     function goodEmail($ciag, $pole)
     {
         if (!filter_var($ciag, FILTER_VALIDATE_EMAIL)) {
-            $this->addError(" poprawny adres $pole");
+            $this->addError("Podaj poprawny adres $pole");
             $this->countErrors++;
         }
     }
@@ -48,20 +48,28 @@ class Validate
         $result = $db->db->query($request);
 
         if ($result->num_rows >= 1) {
-            $this->addError(" inny adres mejlowy, ten jest już w naszej bazie");
+            $this->addError("Podany e-mail jest już w naszej bazie");
+            $this->countErrors++;
+        }
+    }
+
+    function isChecked($pole)
+    {
+        if ($pole == 0) {
+            $this->addError("Nasza współpraca wymaga akceptacji regulaminu.");
             $this->countErrors++;
         }
     }
 
     function addError($text)
     {
-        $this->error .= $text;
+        $this->error .= $text . "<br>";
     }
 
     function __destruct()
     {
         if (!empty($this->error)) {
-            echo '<span class="error" style="color:orange; font-weight:bold"> Podaj' . $this->error . ' :)</span>';
+            echo '<span class="error" style="color:orange; font-weight:bold">' . $this->error . '</span>';
         }
     }
 

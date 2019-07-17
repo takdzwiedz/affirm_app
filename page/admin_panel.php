@@ -30,7 +30,7 @@ if (isset ($_GET['action']) && $_GET['action'] == 'logout' && !empty($_GET['acti
 
 <h3>Panel Administracyjny</h3>
 <a href="?page=admin_panel&action=logout">
-    <button type="button" class="btn btn-info btn-sm">Log out</button>
+    <button type="button" class="btn btn-info btn-sm">Wyloguj</button>
 </a>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">WYŚLIJ "MOGĘ"</a></li>

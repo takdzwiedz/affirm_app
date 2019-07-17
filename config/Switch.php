@@ -8,6 +8,13 @@ if (isset($_GET['page'])) {
 
     switch ($page) {
 
+        case('rodo'):
+
+            $page = 'rodo';
+            $title = '';
+            break;
+
+
         case('goodbye'):
 
             $page = 'goodbye';

@@ -14,7 +14,6 @@ body {
     background-repeat: no-repeat;
     text-align: center;
     font-family: 'Kavivanar', sans-serif;
-    background-position: center;
 }
 
 h1 {
@@ -36,7 +35,6 @@ h1 {
     background-color: rgba(255, 255, 255, 0.7);
     width: 420px;
     height: auto;
-    border-radius: 5px;
     display: inline-block;
     margin: 5px;
     padding: 15px;
@@ -76,20 +74,17 @@ h1 {
     background-color: rgba(255, 255, 255, 0.7);
     width: 420px;
     height: auto;
-    border-radius: 5px;
     display: inline-block;
     margin: 5px;
     padding: 15px;
     vertical-align: top;
     margin-bottom: 50px;
     color: #457294;
-    text-align: center;
     font-size: 14px;
 }
 
 input {
     height: 68.5px;
-    border-radius: 5px;
     width: 90%;
     margin: 10px;
     box-sizing: border-box;
@@ -131,7 +126,6 @@ input:focus:-ms-input-placeholder {
 
 button {
     height: 60px;
-    border-radius: 5px;
     border: none;
     background-color: #368198;
     color: #fff;
@@ -141,7 +135,7 @@ button {
 }
 
 button:hover {
-    background-color: #c05161;
+    background-color: darkorange;
     -o-transition: .5s ease-in-out;
     -ms-transition: .5s ease-in-out;
     -moz-transition: .5s ease-in-out;
@@ -156,6 +150,18 @@ q {
 .mail-row {
     column-width: 30px;
     font-size: 0.3em;
+}
+
+.regulation-title {
+    width: 75%;
+    float: right;
+    padding-right: 21px;
+}
+
+.regulation-checkbox {
+    height: 20px;
+    float: left;
+    width: 15%;
 }
 
 @media only screen and (max-width: 768px) {
