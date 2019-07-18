@@ -54,11 +54,26 @@ if (isset($_POST['send'])) {
     <input type="text" name="name" placeholder="imię" class="name" value="<?php if (isset($_POST['name'])) { echo $_POST['name'];} ?>">
     <input type="text" name="city" placeholder="miasto" class="city" value="<?php if (isset($_POST['city'])) { echo $_POST['city'];} ?>">
     <input type="text" name="mail" id="mail" placeholder="e-mail" class="mail" value="<?php if (isset($_POST['mail'])) { echo $_POST['mail'];} ?>"><span id="mailSpan"></span><br><br>
-    <input type="checkbox" name="regulations" id="regulations" class="regulation-checkbox" value="1" <?php if (isset($_POST['regulations'])) { echo "checked";} ?>>
-    <div class="regulation-title">
-        Akceptuję <a href="?page=rodo">warunki regulaminu</a> "Mozesz - skieruj myśli ku najlepszemu".<br>
+    <div style="">
+
+
 
     </div>
-    <button type="submit" class="btn btn-primary" type="submit" name="send" value="Wyślij">Wyślij</button>
+    <div class="regulation-title">
+        Administratorem Twoich danych osobowych jest “Tu i teraz - Artur Kacprzak” z siedzibą w Łodzi przy ul. Eliasza
+        Chaima Majzela 7/7. Dane będą wykorzystywane do przesyłania jednej afirmującej myśli dziennie od poniedziałku do
+        piątku za pomocą poczty elektronicznej, do informowania o dostępnych produktach, bieżącej komunikacji oraz celów
+        statystycznych. Masz prawo dostępu do treści swoich danych osobowych, możesz je w każdej chwili zmienić lub usunąć
+        pisząc na adres mejlowy a.kacprzak@mozesz.eu.
+<!--        Więcej w <a href="?page=rodo">polityce prywatności</a>.-->
+        <br><br>
+    </div>
+    <input type="checkbox" name="regulations" id="regulations" class="regulation-checkbox" value="1" <?php if (isset($_POST['regulations'])) { echo "checked";} ?>>
+
+    <div class="regulation-acceptance">
+        Akceptuję warunki regulaminu "Mozesz - skieruj myśli ku najlepszemu".
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" type="submit" name="send" value="Wyślij">Rejestruję się</button>
 </form>
 

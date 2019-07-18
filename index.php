@@ -13,10 +13,10 @@ require_once 'lib/function.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="style/style.css" rel="stylesheet">
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <link href="MyCookie/MyCookie.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
+    <link href="style/style.css" rel="stylesheet">
     <title>Możesz</title>
 </head>
 

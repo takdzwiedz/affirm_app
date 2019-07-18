@@ -14,18 +14,17 @@ body {
     background-repeat: no-repeat;
     text-align: center;
     font-family: 'Kavivanar', sans-serif;
+    font-size: 1.1em;
 }
 
 h1 {
     margin-top: 30px;
-    font-size: 3em;
     color: white;
 }
 
 .claim {
     color: #fff;
     font-weight: 400;
-    font-size: 20px;
     letter-spacing: 2px;
     padding: 10px;
     margin-bottom: 20px;
@@ -44,28 +43,24 @@ h1 {
 .left p:nth-child(1), .left p:nth-child(3) {
     color: #457294;
     text-align: center;
-    font-size: 18px;
     font-weight: 700;
 }
 
 .right p:nth-child(1) {
     color: #457294;
     text-align: center;
-    font-size: 18px;
     font-weight: 700;
 }
 
 .left p:nth-child(2), .left p:nth-child(4), .left p:nth-child(5) {
     color: #457294;
     text-align: center;
-    font-size: 14px;
 }
 
 .podpis {
     color: #457294;
     text-align: right;
     font-family: 'Kavivanar', cursive;
-    font-size: 22px;
     font-style: italic;
     margin-right: 16px;
 }
@@ -80,7 +75,6 @@ h1 {
     vertical-align: top;
     margin-bottom: 50px;
     color: #457294;
-    font-size: 14px;
 }
 
 input {
@@ -93,7 +87,6 @@ input {
     background-color: rgb(255, 255, 255);
     border: none;
     position: relative;
-    font-size: 1em;
     color: #457294;
     font-family: 'Kavivanar', cursive;
 }
@@ -153,15 +146,25 @@ q {
 }
 
 .regulation-title {
-    width: 75%;
+    padding-left: 10%;
+    width: 80%;
     float: right;
     padding-right: 21px;
+    text-align: left;
+    font-size: 0.7em;
 }
 
 .regulation-checkbox {
     height: 20px;
     float: left;
     width: 15%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.regulation-acceptance{
+    font-size: 0.7em;
+    text-align: left;
 }
 
 @media only screen and (max-width: 768px) {
