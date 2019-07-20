@@ -53,10 +53,10 @@ class Validate
         }
     }
 
-    function isChecked($pole)
+    function isChecked($pole, $nazwa)
     {
         if ($pole == 0) {
-            $this->addError("Nasza współpraca wymaga akceptacji regulaminu.");
+            $this->addError("Nasza współpraca wymaga zgody na $nazwa.");
             $this->countErrors++;
         }
     }

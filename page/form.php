@@ -6,7 +6,8 @@ if (isset($_POST['send'])) {
     $name = htmlentities(trim($_POST['name']));
     $city = htmlentities(trim($_POST['city']));
     $mail = htmlentities(trim($_POST['mail']));
-    $regulations = isset($_POST['regulations']) ? 1 : 0;
+    $regulations_1 = isset($_POST['regulations-1']) ? 1 : 0;
+    $regulations_2 = isset($_POST['regulations-2']) ? 1 : 0;
     $security = sha1(uniqid());
     $date = date("Y-m-d H:i:s");
 
@@ -17,7 +18,8 @@ if (isset($_POST['send'])) {
     $validate->ifEmpty($city, 'miasto');
     $validate->goodEmail($mail, 'e-mail');
     $validate->ifExist($mail);
-    $validate->isChecked($regulations, "Regulamin");
+    $validate->isChecked($regulations_1, "przetwarzanie danych");
+    $validate->isChecked($regulations_2, "otrzymywanie informacji");
 
     //Data collection to insert to database
 
@@ -61,17 +63,22 @@ if (isset($_POST['send'])) {
     </div>
     <div class="regulation-title">
         Administratorem Twoich danych osobowych jest “Tu i teraz - Artur Kacprzak” z siedzibą w Łodzi przy ul. Eliasza
-        Chaima Majzela 7/7. Dane będą wykorzystywane do przesyłania jednej afirmującej myśli dziennie od poniedziałku do
-        piątku za pomocą poczty elektronicznej, do informowania o dostępnych produktach, bieżącej komunikacji oraz celów
-        statystycznych. Masz prawo dostępu do treści swoich danych osobowych, możesz je w każdej chwili zmienić lub usunąć
-        pisząc na adres mejlowy a.kacprzak@mozesz.eu.
-<!--        Więcej w <a href="?page=rodo">polityce prywatności</a>.-->
+        Chaima Majzela 7/7. Masz prawo dostępu do treści swoich danych osobowych, możesz je w każdej chwili zmienić lub usunąć.<br><br>
+<!--        pisząc na adres mejlowy <a href="mailto:a.kacprzak@mozesz.eu">a.kacprzak@mozesz.eu</a>.-->
+        Więcej w <a href="../Regulamin_v1_0.pdf" download="Regulamin">regulaminie strony</a>.
+
         <br><br>
     </div>
-    <input type="checkbox" name="regulations" id="regulations" class="regulation-checkbox" value="1" <?php if (isset($_POST['regulations'])) { echo "checked";} ?>>
+    <input type="checkbox" name="regulations-1" id="regulations" class="regulation-checkbox" value="1" <?php if (isset($_POST['regulations-1'])) { echo "checked";} ?>>
 
     <div class="regulation-acceptance">
-        Akceptuję warunki regulaminu "Mozesz - skieruj myśli ku najlepszemu".
+        Wyrażam zgodę na przetwarzanie danych celem objęcia mnie projektem “Możesz - skieruj myśli ku najlepszemu”.<br><br>
+
+    </div>
+    <input type="checkbox" name="regulations-2" id="regulations" class="regulation-checkbox" value="1" <?php if (isset($_POST['regulations-2'])) { echo "checked";} ?>>
+
+    <div class="regulation-acceptance">
+        Wyrażam zgodę na użycie danych do otrzymywania informacji o dostępnych produktach oraz do celów statystycznych.
     </div>
     <br>
     <button type="submit" class="btn btn-primary" type="submit" name="send" value="Wyślij">Rejestruję się</button>
