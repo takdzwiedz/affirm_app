@@ -81,6 +81,6 @@ if (isset($_POST['send'])) {
         Wyrażam zgodę na użycie danych do otrzymywania informacji o dostępnych produktach oraz do celów statystycznych.
     </div>
     <br>
-    <button type="submit" class="btn btn-primary" type="submit" name="send" value="Wyślij">Rejestruję się</button>
+    <button type="submit" type="submit" name="send" value="Wyślij">Rejestruję się</button>
 </form>
 

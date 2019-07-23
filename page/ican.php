@@ -43,11 +43,14 @@ if (isset($_POST['send_ican']) && !empty($_POST['ican'])) {
     echo "<span> Brawo! <br> \"Możesz\" zostało wysłane!</span>";
 }
 ?>
-<form method="post">
-    <p>Treść "MOGĘ:</p>
-    <input class="ican" type="text" name="ican"><br><br>
-    <button class="" type="submit" name="send_ican" value="wyslij">Wyślij</button>
-</form>
+<div>
+    <form method="post">
+        <p class="send-ican">Treść "MOGĘ:</p>
+        <input class="ican" type="text" name="ican"><br><br>
+        <button class="" type="submit" name="send_ican" value="wyslij">Wyślij</button>
+    </form>
+</div>
+
 <?php
 include_once 'ican_list.php';
 ?>

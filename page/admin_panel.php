@@ -8,20 +8,6 @@ require_once 'lib/function.php';
 $sess = new MySession();
 $sess->sessVer();
 
-?>
-
-
-<meta charset="UTF-8">
-<meta name="affirm_app" content="description and registration form for those who wants to believe they can">
-<meta name="keywords" content="">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../script/check_mail.js"></script>
-<link rel="stylesheet" href="../style/style.css">
-
-
-<?php
 if (isset ($_GET['action']) && $_GET['action'] == 'logout' && !empty($_GET['action'])) {
 
     $sess->sessEnd();
@@ -30,7 +16,7 @@ if (isset ($_GET['action']) && $_GET['action'] == 'logout' && !empty($_GET['acti
 
 <h3>Panel Administracyjny</h3>
 <a href="?page=admin_panel&action=logout">
-    <button type="button" class="btn btn-info btn-sm">Wyloguj</button>
+    <button type="button">Wyloguj</button>
 </a>
 <ul class="nav nav-tabs nav-justified">
     <li class="active"><a data-toggle="tab" href="#home">WYŚLIJ "MOGĘ"</a></li>

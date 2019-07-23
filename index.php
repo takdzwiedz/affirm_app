@@ -16,7 +16,9 @@ require_once 'lib/function.php';
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <link href="MyCookie/MyCookie.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
-    <link href="style/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+
     <title>Możesz</title>
 </head>
 
@@ -83,6 +85,9 @@ require_once 'lib/function.php';
 <script src="script/check_mail.js"></script>
 
 <script src="js/jquery-3.1.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../script/check_mail.js"></script>
 
 <div id="MyCookie">
     <div id="tekst"></div>

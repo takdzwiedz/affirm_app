@@ -24,7 +24,7 @@
     ?>
     <input name="login" id="login"  placeholder="Imię" class="login"><span id="loginSpan"></span><br>
     <input type="password" id="haslo" name="haslo" class="pass" placeholder="Hasło"><br>
-    <button type="submit" id="zaloguj" name="zaloguj" class="btn btn-lg btn-primary btn-block">Zaloguj</button>
+    <button type="submit" id="zaloguj" name="zaloguj">Zaloguj</button>
 </form>
 
 

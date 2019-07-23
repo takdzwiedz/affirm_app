@@ -14,7 +14,7 @@ body {
     background-repeat: no-repeat;
     text-align: center;
     font-family: 'Kavivanar', sans-serif;
-    font-size: 1.1em;
+    font-size: 1.5em;
 }
 
 h1 {
@@ -147,24 +147,23 @@ q {
 
 .regulation-title {
     padding-left: 10%;
-    width: 80%;
+    width: 90%;
     float: right;
     padding-right: 21px;
     text-align: left;
-    font-size: 0.7em;
+    font-size: 0.8em;
 }
 
 .regulation-checkbox {
     height: 20px;
     float: left;
-    width: 15%;
-    margin: 0px;
-    padding: 0px;
+    width: 20%;
+    margin-bottom: 16px !important;
 }
 
 .regulation-acceptance{
-    font-size: 0.7em;
     text-align: left;
+    font-size: 0.8em;
 }
 
 @media only screen and (max-width: 768px) {
@@ -203,4 +202,7 @@ table {
 
 .per20 {
     width: 20%;
+}
+.send-ican {
+    margin-top: 2em;
 }
