@@ -48,3 +48,6 @@ if (isset($_POST['send_ican']) && !empty($_POST['ican'])) {
     <input class="ican" type="text" name="ican"><br><br>
     <button class="" type="submit" name="send_ican" value="wyslij">Wyślij</button>
 </form>
+<?php
+include_once 'ican_list.php';
+?>

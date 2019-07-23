@@ -32,10 +32,9 @@ if (isset ($_GET['action']) && $_GET['action'] == 'logout' && !empty($_GET['acti
 <a href="?page=admin_panel&action=logout">
     <button type="button" class="btn btn-info btn-sm">Wyloguj</button>
 </a>
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs nav-justified">
     <li class="active"><a data-toggle="tab" href="#home">WYŚLIJ "MOGĘ"</a></li>
     <li><a data-toggle="tab" href="#menu1">UŻYTKOWNICY</a></li>
-    <li><a data-toggle="tab" href="#menu2">MOGĘ WYSŁANE</a></li>
 </ul>
 
 <div class="tab-content">
@@ -49,13 +48,6 @@ if (isset ($_GET['action']) && $_GET['action'] == 'logout' && !empty($_GET['acti
         <?php
         include_once 'users.php';
         ?>
-    </div>
-
-    <div id="menu2" class="tab-pane fade">
-        <?php
-        include_once 'ican_list.php';
-        ?>
-
     </div>
 
 </div>
