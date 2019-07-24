@@ -84,7 +84,7 @@ require_once 'lib/function.php';
         crossorigin="anonymous"></script>
 <script src="script/check_mail.js"></script>
 
-<script src="js/jquery-3.1.1.min.js"></script>
+<script src="script/jquery-3.1.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../script/check_mail.js"></script>
