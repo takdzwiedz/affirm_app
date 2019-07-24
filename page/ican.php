@@ -22,7 +22,8 @@ if (isset($_POST['send_ican']) && !empty($_POST['ican_male']) && !empty($_POST['
 
     // Umieszczam afirmację w tabeli z afirmacjami w rodzaju żeńskim
 
-    $icanQuery = "INSERT INTO `affirmation_female`(`affirmation`, `date`, `time`, `affirmation_male_id`) VALUES ('$ican', '$date', '$time', '$lastAffirmId')";
+    $icanQuery = "INSERT INTO `affirmation_female`(`affirmation`, `date`, `time`, `affirmation_male_id`) VALUES ('$icanFemale', '$date', '$time', '$lastAffirmId')";
+
     $connection = new DbConnect();
     $save = $connection->db->query($icanQuery);
 
