@@ -17,7 +17,7 @@ $account->confAccount($security_check, $mail);
 </p>
 <p><b>Możesz zmienić swoje życie!</b></p>
 <p>
-    Zacznij przyzwyczajać się do najlepszego!<br>
+    Zacznij przyzwyczajać się do zmiany na lepsze!<br>
    
 <p class="podpis">Artur</p>
 </p>
