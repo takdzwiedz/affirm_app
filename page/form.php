@@ -40,7 +40,7 @@ if (isset($_POST['send'])) {
             . "Artur<br><br>"
             . "PS. Jeżeli nie rejestrowałeś się na stronie mozesz.eu ale zaciekawiło Cię co możesz, też możesz kliknąć na link.<br>"
             . "PPS. Jeśli nie rejestrowałeś się na stronie mozesz.eu i nie chcesz tego robić, po prostu zignoruj tego mejla. <br>";
-        $sendMail->send($to, "[Możesz]Możesz potwierdzić rejestrację na stronie mozesz.eu", $message);
+        $sendMail->send($to, "[Możesz] Możesz potwierdzić rejestrację na stronie mozesz.eu", $message);
         // In the and it displays user page with greetings
         header('Location:index.php?page=thx');
     }
