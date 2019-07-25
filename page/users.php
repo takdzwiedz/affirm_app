@@ -4,7 +4,7 @@
     <thead>
     <tr>
         <th class="lp-col">l.p.</th>
-        <td>Imie</td>
+        <td>Imię</td>
         <td>Miasto</td>
         <td>E-mail</td>
         <td>Data rejestracji</td>

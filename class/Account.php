@@ -8,6 +8,13 @@ class Account extends DbConnect
 
         //function confAccount checks if user exist and if true ...
 
+        $confirmationMailMessage = "Voila!<br><br>"
+            . "<p>Od dzisja, każdego dnia MOŻESZ spodziewać się od mnie jednego inspirującego, dodającego Ci sił \"MOŻESZ\". Specjalnie dla Ciebie!<br><br>"
+            . "Dobrego!<br><br>"
+            . "Artur<br><br>"
+            . "PS. Acha! Jestem też miłośnikiem muzyki. <a href=\"https://www.youtube.com/watch?v=h5rMfLJKwIE&index=3&list=RDoImj_Wuh_UI\">Dedykacja dla Ciebie</a> :)</p>";
+
+
         if ($wynik->num_rows == 1) {
 
             // ...activates user account
@@ -16,7 +23,7 @@ class Account extends DbConnect
             // ...and send confiramtion e-mail to user
             $to = $mail;
             $confirmation_mail = new SendMail(E_MAIL_ADMIN);
-            $confirmation_mail->send($to, CONFIRMATION_MAIL_SUBJECT, CONFIRMATION_MAIL_MESSAGE);
+            $confirmation_mail->send($to, "[MOŻESZ] Potwierdzenie rejestracji", $confirmationMailMessage);
 
             if (!$confirmation) {
                 echo '<span style="color:orange;">Błąd potwiedzenia. Skontaktuj się ze mną.</span>';
