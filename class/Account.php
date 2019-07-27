@@ -25,6 +25,10 @@ class Account extends DbConnect
             $confirmation_mail = new SendMail(E_MAIL_ADMIN);
             $confirmation_mail->send($to, "[MOŻESZ] Potwierdzenie rejestracji", $confirmationMailMessage);
 
+            $notification_mail = new SendMail(E_MAIL_ADMIN);
+            $notification_mail_text = "Do projektu \"Możesz.eu - skieruj myśli ku najlepszemu\" doąłczyła nowa osoba. <br>" . "<a href='https://mysql-sh221499.super-host.pl/'>Sprawdź kto to i dodaj mu formę wołacza.</a><br>" . "Administrator Systemu";
+            $notification_mail->send("a.kacprzak@mozesz.eu", "[MOŻESZ] - nowa osoba w systemie", $notification_mail_text);
+
             if (!$confirmation) {
                 echo '<span style="color:orange;">Błąd potwiedzenia. Skontaktuj się ze mną.</span>';
                 die();
