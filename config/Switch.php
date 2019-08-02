@@ -8,12 +8,17 @@ if (isset($_GET['page'])) {
 
     switch ($page) {
 
-        case('rodo'):
+        case('cron_mailing'):
 
-            $page = 'rodo';
+            $page = 'cron_mailing';
             $title = '';
             break;
 
+        case('mailing'):
+
+            $page = 'mailing';
+            $title = '';
+            break;
 
         case('goodbye'):
 

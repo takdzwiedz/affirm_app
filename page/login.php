@@ -23,7 +23,8 @@
     }
     ?>
     <input name="login" id="login"  placeholder="Imię" class="login"><span id="loginSpan"></span><br>
-    <input type="password" id="haslo" name="haslo" class="pass" placeholder="Hasło"><br>
+    <input type="password" id="hasl
+    o" name="haslo" class="pass" placeholder="Hasło"><br>
     <button type="submit" id="zaloguj" name="zaloguj">Zaloguj</button>
 </form>
 

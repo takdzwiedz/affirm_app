@@ -1,5 +1,8 @@
 <?php
-
+/*
+ * Natychmiastowe wysyłanie nowego możesz.
+ *
+ * */
 require_once 'class/DbConnect.php';
 
 if (isset($_POST['send_ican']) && !empty($_POST['ican_male']) && !empty($_POST['ican_female'])) {
@@ -39,7 +42,6 @@ if (isset($_POST['send_ican']) && !empty($_POST['ican_male']) && !empty($_POST['
     while ($row = $result->fetch_object()) {
 
         $to = $row->mail;
-        $name = $row->name;
         $security = $row->security;
         $genitive = $row->genitive;
         $sex = $row->sex;
