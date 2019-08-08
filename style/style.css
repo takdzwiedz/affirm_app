@@ -7,13 +7,17 @@ and open the template in the editor.
     Created on : 2017-11-17, 18:37:59
     Author     : artur
 */
-
+@font-face {
+    font-family: 'Apolonia';
+    src: url('/font/apolonia/Apolonia-Italic 2016.ttf');
+}
 body {
     background-image: url("../image/clouds.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
-    font-family: 'Kavivanar', sans-serif;
+
+    font-family: 'Apolonia';
     font-size: 1.5em;
 }
 
@@ -60,7 +64,6 @@ h1 {
 .podpis {
     color: #457294;
     text-align: right;
-    font-family: 'Kavivanar', cursive;
     font-style: italic;
     margin-right: 16px;
 }
@@ -88,7 +91,6 @@ input {
     border: none;
     position: relative;
     color: #457294;
-    font-family: 'Kavivanar', cursive;
 }
 
 focus:-moz-placeholder {
@@ -124,7 +126,6 @@ button {
     color: #fff;
     padding: 0 60px;
     margin: 30px;
-    font-family: 'Kavivanar', cursive;
 }
 
 button:hover {
@@ -159,11 +160,13 @@ q {
     float: left;
     width: 20%;
     margin-bottom: 16px !important;
+    margin-top: 16px !important;
 }
 
 .regulation-acceptance{
     text-align: left;
     font-size: 0.8em;
+    margin-bottom: 5px;
 }
 
 @media only screen and (max-width: 768px) {

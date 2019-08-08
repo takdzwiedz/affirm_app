@@ -1,5 +1,12 @@
 <?php
 
+require 'class/SendMail.php';
+require 'class/Card.php';
+require 'class/DbConnect.php';
+require 'class/Send.php';
+require 'class/Sex.php';
+
+
 
 class Can
 
@@ -132,7 +139,15 @@ class Can
         $text1 tę wiadomość, bo $text2 się na stronie mozesz.eu.
         Jeśli nie chcesz więcej otrzymywać ode mnie afirmacji, możesz wypisać się z projektu klikając na <a href=\"" . WITRYNA . "index.php?page=goodbye&mail=$mail&security=$security\">ten link</a>.";
 
-        $sendICan->send($mail, $subject, $message);
+
+        // Tworzę jpeg z treścią afirmacji dla danej osoby.
+        $card = new Card();
+        $card->createCardWithCan($affirmation_name);
+
+        // Przesyłam mejla z załącznikiem
+        $sendICan2 = new Send();
+        $sendICan2->sendMail($mail, $subject, $message);
+
         return $affirmation_id;
     }
 

@@ -18,7 +18,6 @@ require_once 'lib/function.php';
     <link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style/style.css">
-
     <title>Możesz</title>
 </head>
 

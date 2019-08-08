@@ -1,0 +1,15 @@
+{
+    "name": "artur/mozesz_eu",
+    "require-dev": {
+    },
+    "authors": [
+        {
+            "name": "Artur",
+            "email": "a.kacprzak@tu-i-teraz.com.pl"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.0",
+        "stil/gd-text": "^1.1"
+    }
+}
