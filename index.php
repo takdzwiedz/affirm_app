@@ -15,7 +15,6 @@ require_once 'lib/function.php';
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <link href="MyCookie/MyCookie.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style/style.css">
     <title>Możesz</title>
@@ -48,6 +47,7 @@ require_once 'lib/function.php';
                 że coś możesz lub czegoś nie możesz, to w obu przypadkach masz rację</q> Henry'ego
             Forda. Proste, prawda?
         </p>
+        <p>Obietnica</p>
         <p>
             Wierzę, w zmianę swojego życia przez zmianę swojego
             myślenia. Służy temu wiele technik. Ta, którą

@@ -8,8 +8,8 @@ and open the template in the editor.
     Author     : artur
 */
 @font-face {
-    font-family: 'Apolonia';
-    src: url('/font/apolonia/Apolonia-Italic 2016.ttf');
+    font-family: "Apolonia";
+    src: url("font/apolonia/Apolonia-Italic-2016.ttf");
 }
 body {
     background-image: url("../image/clouds.jpg");
@@ -44,9 +44,9 @@ h1 {
     vertical-align: top;
 }
 
-.left p:nth-child(1), .left p:nth-child(3) {
+.left p:nth-child(1), .left p:nth-child(3), .left p:nth-child(5) {
     color: #457294;
-    text-align: center;
+    text-align: left;
     font-weight: 700;
 }
 
@@ -56,9 +56,9 @@ h1 {
     font-weight: 700;
 }
 
-.left p:nth-child(2), .left p:nth-child(4), .left p:nth-child(5) {
+.left p:nth-child(2), .left p:nth-child(4), .left p:nth-child(6) {
     color: #457294;
-    text-align: center;
+    text-align: left;
 }
 
 .podpis {
@@ -78,6 +78,9 @@ h1 {
     vertical-align: top;
     margin-bottom: 50px;
     color: #457294;
+}
+.left p {
+    padding: 5px 5px 5px 15px;
 }
 
 input {

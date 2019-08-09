@@ -65,7 +65,7 @@ if (isset($_POST['send'])) {
         Administratorem Twoich danych osobowych jest “Tu i teraz - Artur Kacprzak” z siedzibą w Łodzi przy ul. Eliasza
         Chaima Majzela 7/7. Masz prawo dostępu do treści swoich danych osobowych, możesz je w każdej chwili zmienić lub usunąć.<br><br>
 <!--        pisząc na adres mejlowy <a href="mailto:a.kacprzak@mozesz.eu">a.kacprzak@mozesz.eu</a>.-->
-        Więcej w <a href="../Regulamin_v1_0.pdf" download="Regulamin">regulaminie strony</a>.
+        Więcej w <a href="../Regulamin_v1_0.pdf" download="Regulamin">regulaminie strony.</a>
 
         <br><br>
     </div>

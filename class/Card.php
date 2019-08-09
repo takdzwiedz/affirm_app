@@ -14,10 +14,10 @@ class Card
         imagefill($im, 0, 0, $backgroundColor);
 
         $box = new Box($im);
-        $box->setFontFace(realpath('font/apolonia/Apolonia-Italic 2016.ttf'));
+        $box->setFontFace(realpath('style/font/apolonia/Apolonia-BoldItalic 2016.ttf'));
         $box->setFontColor(new Color(255, 255, 255));
         $box->setTextShadow(new Color(0, 0, 0, 50), 2, 2);
-        $box->setFontSize(54);
+        $box->setFontSize(57);
         $box->setLineHeight(1.5);
         //$box->enableDebug();
         $box->setBox(30, 30, 840, 640);

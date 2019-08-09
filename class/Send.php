@@ -32,7 +32,7 @@ class Send
             $mail->Port       = 465;                                    // TCP port to connect to
 
             //Recipients
-            $mail->setFrom('a.kacprzak@mozesz.eu', 'Artur Kacprzak');
+            $mail->setFrom('a.kacprzak@mozesz.eu', 'Artur');
             $mail->addAddress($email);     // Add a recipient
 
             // Attachments

@@ -8,52 +8,58 @@ if (isset($_GET['page'])) {
 
     switch ($page) {
 
+        case('cron_card_test'):
+
+            $page = 'cron_card_test';
+            $title = 'Test karty i krona';
+            break;
+
         case('mailing'):
 
             $page = 'mailing';
-            $title = '';
+            $title = 'Mailing';
             break;
 
         case('goodbye'):
 
             $page = 'goodbye';
-            $title = '';
+            $title = 'Strona na do widzenia';
             break;
 
 
         case('form'):
 
             $page = 'form';
-            $title = '';
+            $title = 'Formularz';
             break;
 
         case('thx');
 
             $page = 'thx';
-            $title = '';
+            $title = 'Podziękowanie za rejestrację';
             break;
 
         case('confirmation');
 
             $page = 'confirmation';
-            $title = '';
+            $title = 'Potwierdzenie rejestracji';
             break;
 
         case('login');
 
             $page = 'login';
-            $title = '';
+            $title = 'Logowanie do PA';
             break;
 
         case('admin_panel');
 
             $page = 'admin_panel';
-            $title = '';
+            $title = 'Panel Administracyjny';
             break;
 
         default:
 
             $page = 'form';
-            $title = '';
+            $title = 'Formularz zgłoszeniowy';
     }
 }

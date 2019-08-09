@@ -133,11 +133,11 @@ class Can
         $text1 = $sexFunc->maleFemale($sex, 'Dostałaś', 'Dostałeś');
         $text2 = $sexFunc->maleFemale($sex, 'zapisałaś', 'zapisałeś');
 
-        $subject = "[MOŻESZ] od Artura Kacprzaka";
+        $subject = "[MOŻESZ] - Skieruj myśli ku najlepszemu";
         $message = "Cześć $genitive," . "<h3>" . $affirmation_name . "</h3>" . "Dobrego dnia,<br>Artur Kacprzak<br><br>
 
-        $text1 tę wiadomość, bo $text2 się na stronie mozesz.eu.
-        Jeśli nie chcesz więcej otrzymywać ode mnie afirmacji, możesz wypisać się z projektu klikając na <a href=\"" . WITRYNA . "index.php?page=goodbye&mail=$mail&security=$security\">ten link</a>.";
+        <p style='font-size: 0.8em; color: gray'>$text1 tę wiadomość, bo $text2 się na stronie <a href=\"" . WITRYNA . "\" style='color: darkgray'>mozesz.eu</a>.<br>
+        Jeśli nie chcesz więcej otrzymywać ode mnie afirmacji, możesz wypisać się z projektu klikając na <a style='color: darkgray' href=\"" . WITRYNA . "index.php?page=goodbye&mail=$mail&security=$security\">ten link</a>.</p>";
 
 
         // Tworzę jpeg z treścią afirmacji dla danej osoby.
