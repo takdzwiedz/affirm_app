@@ -133,7 +133,7 @@ class Can
         $text1 = $sexFunc->maleFemale($sex, 'Dostałaś', 'Dostałeś');
         $text2 = $sexFunc->maleFemale($sex, 'zapisałaś', 'zapisałeś');
 
-        $subject = "[MOŻESZ] - Skieruj myśli ku najlepszemu";
+        $subject = "[MOŻESZ] Skieruj myśli ku najlepszemu";
         $message = "Cześć $genitive," . "<h3>" . $affirmation_name . "</h3>" . "Dobrego dnia,<br>Artur Kacprzak<br><br>
 
         <p style='font-size: 0.8em; color: gray'>$text1 tę wiadomość, bo $text2 się na stronie <a href=\"" . WITRYNA . "\" style='color: darkgray'>mozesz.eu</a>.<br>

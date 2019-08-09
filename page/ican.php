@@ -59,7 +59,7 @@ if (isset($_POST['send_ican']) && !empty($_POST['ican_male']) && !empty($_POST['
         $text1 = $sexFunc->maleFemale($sex, 'Dostałaś', 'Dostałeś');
         $text2 = $sexFunc->maleFemale($sex, 'zapisałaś', 'zapisałeś');
 
-        $subject = "[MOŻESZ] od Artura Kacprzaka";
+        $subject = "[MOŻESZ] Skieruj myśli ku najlepszemu";
         $message = "Cześć $genitive," . "<h3>" . $icanText . "</h3>" . "Dobrego dnia,<br>Artur Kacprzak<br><br>
 
         $text1 tę wiadomość, bo $text2 się na stronie mozesz.eu. 

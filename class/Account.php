@@ -8,11 +8,11 @@ class Account extends DbConnect
 
         //function confAccount checks if user exist and if true ...
 
-        $confirmationMailMessage = "Voila!<br><br>"
-            . "<p>Od dzisja, każdego dnia MOŻESZ spodziewać się od mnie jednego inspirującego, dodającego Ci sił \"MOŻESZ\". Specjalnie dla Ciebie!<br><br>"
+        $confirmationMailMessage = "Voila!<br>"
+            . "<p>Od dzisja, każdego dnia spodziewaj się od mnie jednego inspirującego, dodającego Ci sił \"Możesz\". Specjalnie dla Ciebie!<br><br>"
             . "Dobrego!<br><br>"
             . "Artur<br><br>"
-            . "PS. Acha! Jestem też miłośnikiem muzyki. <a href=\"https://www.youtube.com/watch?v=h5rMfLJKwIE&index=3&list=RDoImj_Wuh_UI\">Dedykacja dla Ciebie</a> :)</p>";
+            . "PS. <a href=\"https://www.youtube.com/watch?v=h5rMfLJKwIE&index=3&list=RDoImj_Wuh_UI\">Dedykacja dla Ciebie</a></p>";
 
 
         if ($wynik->num_rows == 1) {
@@ -26,7 +26,7 @@ class Account extends DbConnect
             $confirmation_mail->send($to, "[MOŻESZ] Potwierdzenie rejestracji", $confirmationMailMessage);
 
             $notification_mail = new SendMail(E_MAIL_ADMIN);
-            $notification_mail_text = "Do projektu \"Możesz.eu - skieruj myśli ku najlepszemu\" doąłczyła nowa osoba. <br>" . "<a href='https://mysql-sh221499.super-host.pl/'>Sprawdź kto to i dodaj mu formę wołacza.</a><br>" . "Administrator Systemu";
+            $notification_mail_text = "Do projektu \"Możesz.eu - skieruj myśli ku najlepszemu\" doąłczyła nowa osoba. <br>" . "<a href='https://mysql-sh221499.super-host.pl/'>Sprawdź kto to i dodaj mu formę wołacza oraz określ, czy jest to kobieta, czy mężczyzna..</a><br>" . "Administrator Systemu";
             $notification_mail->send("a.kacprzak@mozesz.eu", "[MOŻESZ] - nowa osoba w systemie", $notification_mail_text);
 
             if (!$confirmation) {

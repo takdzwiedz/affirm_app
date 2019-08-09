@@ -33,14 +33,17 @@ if (isset($_POST['send'])) {
 
         // ... and sends e-mail to user with request for confirmation
 
-        $sendMail = new SendMail(E_MAIL_ADMIN);
         $to = $mail;
-        $message = "Witaj ponownie!<br><br>"
-            . "Aby potwierdzić swoją rejestrację kliknij na <b><a href=\"" . WITRYNA . "index.php?page=confirmation&mail=$mail&security=$security\">link</a></b>.<br><br>"
-            . "Artur<br><br>"
-            . "PS. Jeżeli nie rejestrowałeś się na stronie mozesz.eu ale zaciekawiło Cię co możesz, też możesz kliknąć na link.<br>"
-            . "PPS. Jeśli nie rejestrowałeś się na stronie mozesz.eu i nie chcesz tego robić, po prostu zignoruj tego mejla. <br>";
-        $sendMail->send($to, "[Możesz] Możesz potwierdzić rejestrację na stronie mozesz.eu", $message);
+        $message = "Witaj ponownie!<br><br><b>
+            <a href=\"" . WITRYNA . "index.php?page=confirmation&mail=$mail&security=$security\">Aby potwierdzić swoją rejestrację kliknij na link.</a></b><br>
+            <br>Potwierdzenie jest równoznaczne z wyrażeniem zgody na treść załączonego regulaminu.<br><br>"
+            ."Jeżeli nie rejestrowałeś się na stronie mozesz.eu ale zaciekawiło Cię co możesz, kliknij, na powyższych link.<br>"
+            . "Jeśli nie rejestrowałeś się na stronie mozesz.eu i nie chcesz tego robić, po prostu zignoruj tego mejla. <br><br>"
+            . "Powodzenia,<br><br>"
+            . "Artur Kacprzak";
+
+        $send = new Send();
+        $send->sendMail($to, "[MOŻESZ] Możesz potwierdzić rejestrację", $message, 'Regulamin_v1_0.pdf');
         // In the and it displays user page with greetings
         header('Location:index.php?page=thx');
     }
