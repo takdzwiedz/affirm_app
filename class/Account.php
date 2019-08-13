@@ -27,7 +27,7 @@ class Account extends DbConnect
 
             $notification_mail = new SendMail(E_MAIL_ADMIN);
             $notification_mail_text = "Do projektu \"Możesz.eu - skieruj myśli ku najlepszemu\" doąłczyła nowa osoba. <br>" . "<a href='https://mysql-sh221499.super-host.pl/'>Sprawdź kto to i dodaj mu formę wołacza oraz określ, czy jest to kobieta, czy mężczyzna..</a><br>" . "Administrator Systemu";
-            $notification_mail->send("a.kacprzak@mozesz.eu", "[MOŻESZ] - nowa osoba w systemie", $notification_mail_text);
+            $notification_mail->send("a.kacprzak@tu-i-teraz.com.pl", "[MOŻESZ] - nowa osoba w systemie", $notification_mail_text);
 
             if (!$confirmation) {
                 echo '<span style="color:orange;">Błąd potwiedzenia. Skontaktuj się ze mną.</span>';
