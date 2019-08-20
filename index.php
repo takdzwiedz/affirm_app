@@ -24,7 +24,7 @@ require_once 'lib/function.php';
 <body cz-shortcut-listen="true">
 
 <div>
-    <h1>Możesz</h1>
+    <a href="<?php echo WITRYNA ?>" style="text-decoration: none"><h1>Możesz</h1></a>
     <p class="claim">"Skieruj myśli ku najlepszemu"</p>
 </div>
 
