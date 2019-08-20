@@ -63,7 +63,7 @@ if (isset($_POST['send_ican']) && !empty($_POST['ican_male']) && !empty($_POST['
         $message = "Cześć $genitive," . "<h3>" . $icanText . "</h3>" . "Dobrego dnia,<br>Artur Kacprzak<br><br>
 
         $text1 tę wiadomość, bo $text2 się na stronie mozesz.eu. 
-        Jeśli nie chcesz więcej otrzymywać ode mnie afirmacji, możesz wypisać się z projektu klikając na <a href=\"" . WITRYNA . "index.php?page=goodbye&mail=$to&security=$security\">ten link</a>.";
+        Jeśli nie chcesz więcej otrzymywać ode mnie afirmacji, możesz wypisać się z projektu klikając na <a href=\"" . WITRYNA . "index.php?page=pre_goodbye&mail=$to&security=$security\">ten link</a>.";
 
         $sendICan->send($to, $subject, $message);
     }

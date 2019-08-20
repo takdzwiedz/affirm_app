@@ -27,6 +27,13 @@ if (isset($_GET['page'])) {
             break;
 
 
+        case('pre_goodbye'):
+
+            $page = 'pre_goodbye';
+            $title = 'Strona przed rozstaniem';
+            break;
+
+
         case('form'):
 
             $page = 'form';
