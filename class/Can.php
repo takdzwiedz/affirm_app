@@ -58,16 +58,16 @@ class Can
     /*
      * Pobiera wszystkie afirmacje otrzymane przez użytkownika z historii od początku
      * */
-    private function getUserAffirmations($id_user)
+    function getUserAffirmations($id_user)
     {
         $connection = new DbConnect();
         $user_affirmations = array();
-        $query = "SELECT `id_affirmation`, `affirmation`, `author`, `user_rate`, am.date, am.time FROM `affirmation_male` am JOIN `history_user_affirmation` hua ON am.id_affirmation = hua.affirmation_id WHERE hua.user_id = '" . $id_user . "'";
+        $query = "SELECT `id_affirmation`, `affirmation`, `author`, `user_rate`, am.date, am.time, hua.date as 'sent_to_user_date', hua.time as 'sent_to_user_time' FROM `affirmation_male` am JOIN `history_user_affirmation` hua ON am.id_affirmation = hua.affirmation_id WHERE hua.user_id = '" . $id_user . "'";
         $exec = $connection->db->query($query);
         if ($exec) {
             $user_affirmations = $exec->fetch_all();
         }
-        // Potrzebuję tutaj wynik przeszukania tabeli affirmation_male ze wszystkimi rekordami where user = $user_id and affirmation_id z przedziału wyznaczonego przez poprzednie zapytanie
+        // Potrzebuję tutaj wynik przeszukania tabeli affirmation_male ze wszystkimi rekordami where user = $id_user and affirmation_id z przedziału wyznaczonego przez poprzednie zapytanie
         return $user_affirmations;
     }
 
