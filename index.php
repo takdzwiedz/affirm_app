@@ -69,6 +69,9 @@ require_once 'lib/function.php';
         ob_end_flush();
         ?>
     </div>
+    <div>
+        <a target="_blank" rel="noopener noreferrer" href="http://elakrolikowska.pl/index.html" style="text-decoration: none">Projekt lejałtu: elakrolikowska.pl</a> </p>
+    </div>
 </div>
 
 
@@ -93,6 +96,8 @@ require_once 'lib/function.php';
     <div id="close"></div>
 </div>
 <script src="MyCookie/MyCookie.js"></script>
+
+
 
 </body>
 
