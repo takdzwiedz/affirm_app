@@ -3,7 +3,10 @@
  * Natychmiastowe wysyłanie nowego możesz.
  *
  * */
-require_once 'class/DbConnect.php';
+
+
+require_once 'class/Can.php';
+
 
 if (isset($_POST['send_ican']) && !empty($_POST['ican_male']) && !empty($_POST['ican_female'])) {
 
@@ -26,46 +29,45 @@ if (isset($_POST['send_ican']) && !empty($_POST['ican_male']) && !empty($_POST['
     // Umieszczam afirmację w tabeli z afirmacjami w rodzaju żeńskim
 
     $icanQuery = "INSERT INTO `affirmation_female`(`affirmation`, `date`, `time`, `affirmation_male_id`) VALUES ('$icanFemale', '$date', '$time', '$lastAffirmId')";
-
-    $connection = new DbConnect();
     $save = $connection->db->query($icanQuery);
 
     // Pobieram wszystkich użytkowników
 
-    $request = "SELECT `mail`, `security`, `name`, `sex`, `genitive` FROM `user` WHERE `is_active` = 1";
+    $request = "SELECT `id_user`, `mail`, `security`, `name`, `sex`, `genitive` FROM `user` WHERE `is_active` = 1";
     $result = $connection->db->query($request);
-    $lp = 0;
 
     // Rozsyłam wszystkim użytkownikom "możesz"
-    $sendICan = new SendMail(E_MAIL_ADMIN);
 
     while ($row = $result->fetch_object()) {
 
-        $to = $row->mail;
+        $id_user = $row->id_user;
+        $mail = $row->mail;
         $security = $row->security;
         $genitive = $row->genitive;
         $sex = $row->sex;
 
         // Warunkuję formę afirmacji w zależności od płci
 
-        $icanText = '';
+        $affirmation_name = '';
         if ($sex == 'k') {
-            $icanText = $icanFemale;
+            $affirmation_name = $icanFemale;
         } else {
-            $icanText = $ican;
+            $affirmation_name = $ican;
         }
 
-        $sexFunc = new Sex();
-        $text1 = $sexFunc->maleFemale($sex, 'Dostałaś', 'Dostałeś');
-        $text2 = $sexFunc->maleFemale($sex, 'zapisałaś', 'zapisałeś');
-
         $subject = "[MOŻESZ] Skieruj myśli ku najlepszemu";
-        $message = "Cześć $genitive," . "<h3>" . $icanText . "</h3>" . "Dobrego dnia,<br>Artur Kacprzak<br><br>
 
-        $text1 tę wiadomość, bo $text2 się na stronie mozesz.eu. 
-        Jeśli nie chcesz więcej otrzymywać ode mnie afirmacji, możesz wypisać się z projektu klikając na <a href=\"" . WITRYNA . "index.php?page=pre_goodbye&mail=$to&security=$security\">ten link</a>.";
+        $text = new Text();
+        $message = $text->message($genitive, $affirmation_name, $mail, $security, $sex);
 
-        $sendICan->send($to, $subject, $message);
+        $card = new Card();
+        $card->createCardWithCan($affirmation_name);
+
+        $send = new Send();
+        $send->sendMail($mail, $subject, $message, 'image/cards/mozesz.jpg');
+
+        $save = new Can();
+        $save->saveSentAffirmationInHistory($id_user, $lastAffirmId);
     }
 
     echo "<span> Brawo! <br> \"Możesz\" zostało wysłane!</span>";

@@ -1,11 +1,10 @@
 <?php
 
-require 'class/SendMail.php';
 require 'class/Card.php';
 require 'class/DbConnect.php';
 require 'class/Send.php';
 require 'class/Sex.php';
-
+require 'class/Text.php';
 
 
 class Can
@@ -93,7 +92,6 @@ class Can
                     ORDER BY 
                         hua.date DESC, 
                         hua.time DESC";
-        echo $query;
         $exec = $connection->db->query($query);
         if ($exec) {
             $user_affirmations = $exec->fetch_all();
@@ -138,7 +136,7 @@ class Can
      * */
     function sendNextAffirmationToUser($id_user, $mail, $security, $genitive, $sex)
     {
-        $sendICan = new SendMail(E_MAIL_ADMIN);
+        $send = new Send();
         $affirmation_left = $this->affirmationForUserToSent($id_user);
 
         // Jeśli wyczerpały się afirmację, to wyślij standardową i powiadomienie do administratora
@@ -156,28 +154,20 @@ class Can
         } else {
             $affirmation_name = "Możesz zmienić swoje życie.";
             $affirmation_id = null;
-            $sendICan->send(E_MAIL_ADMIN, "Brak nowych afirmacji",
+            $send->sendMail("a.kacprzak@mozesz.eu", "Brak nowych afirmacji",
                 "Brak nowych afirmacji dla użytkownika o id = $id_user");
         }
 
-        $sexFunc = new Sex();
-        $text1 = $sexFunc->maleFemale($sex, 'Dostałaś', 'Dostałeś');
-        $text2 = $sexFunc->maleFemale($sex, 'zapisałaś', 'zapisałeś');
-
         $subject = "[MOŻESZ] Skieruj myśli ku najlepszemu";
-        $message = "Cześć $genitive," . "<h3>" . $affirmation_name . "</h3>" . "Dobrego dnia,<br>Artur Kacprzak<br><br>
-
-        <p style='font-size: 0.8em; color: gray'>$text1 tę wiadomość, bo $text2 się na stronie <a href=\"" . WITRYNA . "\" style='color: darkgray'>mozesz.eu</a>.<br>
-        Jeśli nie chcesz więcej otrzymywać ode mnie afirmacji, możesz wypisać się z projektu klikając na <a style='color: darkgray' href=\"" . WITRYNA . "index.php?page=pre_goodbye&mail=$mail&security=$security\">ten link</a>.</p>";
-
+        $text = new Text();
+        $message = $text->message($genitive, $affirmation_name, $mail, $security, $sex);
 
         // Tworzę jpeg z treścią afirmacji dla danej osoby.
         $card = new Card();
         $card->createCardWithCan($affirmation_name);
 
         // Przesyłam mejla z załącznikiem
-        $sendICan2 = new Send();
-        $sendICan2->sendMail($mail, $subject, $message);
+        $send->sendMail($mail, $subject, $message, 'image/cards/mozesz.jpg');
 
         return $affirmation_id;
     }
@@ -207,7 +197,6 @@ class Can
         $response = $connection->db->query($query);
         $fem_affirm = $response->fetch_row();
         $fem_affirm_name = $fem_affirm[1];
-        echo $fem_affirm_name;
         return $fem_affirm_name;
     }
 }

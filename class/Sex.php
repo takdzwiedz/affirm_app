@@ -2,10 +2,11 @@
 
 class Sex
 {
-    function maleFemale ($sex, $female, $male) {
+    function maleFemale($sex, $female, $male)
+    {
         if ($sex == 'k') {
             return $female;
-        }else {
+        } else {
             return $male;
         }
     }

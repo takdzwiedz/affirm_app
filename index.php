@@ -70,7 +70,8 @@ require_once 'lib/function.php';
         ?>
     </div>
     <div>
-        <a target="_blank" rel="noopener noreferrer" href="http://elakrolikowska.pl/index.html" style="text-decoration: none">Projekt lejałtu: elakrolikowska.pl</a> </p>
+        <a target="_blank" rel="noopener noreferrer" href="http://elakrolikowska.pl/index.html"
+           style="text-decoration: none; font-size: 0.8em">Projekt lejałtu: elakrolikowska.pl</a>
     </div>
 </div>
 
@@ -96,8 +97,6 @@ require_once 'lib/function.php';
     <div id="close"></div>
 </div>
 <script src="MyCookie/MyCookie.js"></script>
-
-
 
 </body>
 
