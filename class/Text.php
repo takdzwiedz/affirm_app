@@ -5,7 +5,7 @@ class Text
 {
     function message($genitive, $affirmation_name, $mail, $security, $sex)
     {
-        $text = "Cześć $genitive," . "<h3>" . $affirmation_name . "</h3>" . "Dobrego dnia,<br>Artur Kacprzak<br><br>";
+        $text = "Cześć $genitive," . "<h3>" . $affirmation_name . "</h3>" . "Dobrego dnia,<br><img src=\"" . WITRYNA . "image/podpis.png\" style='width: 12em; height: auto;'><br><br>";
         $message = $this->footer($text, $sex, $mail, $security);
         return $message;
     }
