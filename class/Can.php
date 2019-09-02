@@ -90,7 +90,7 @@ class Can
                     ON am.id_affirmation = hua.affirmation_id 
                     WHERE hua.user_id = '" . $id_user . "' 
                     ORDER BY 
-                        hua.date DESC, 
+                        STR_TO_DATE(hua.date, '%d-%m-%Y') DESC, 
                         hua.time DESC";
         $exec = $connection->db->query($query);
         if ($exec) {

@@ -3,7 +3,7 @@
 $can = new Can();
 $users = $can->getAllUsers();
 $today = $date = date("d-m-Y");
-echo "today: " . $today;
+echo "today: " . $today . "<hr>";
 
 while ($row = $users->fetch_object()) {
 
@@ -17,12 +17,11 @@ while ($row = $users->fetch_object()) {
     } else {
         $uha_latest = null;
     }
-
     // WYSYŁKA AFIRMACJI
 
     // Wysyłaj, jeżeli data wysyłki ostatniej afirmacji ($uha_latest[6]) jest wcześniejsza od dzisiejszej $today
 
-    if ($uha_latest[6] < $today OR !$uha) {
+    if (strtotime($uha_latest[6]) < strtotime($today) OR !$uha) {
         $next_affiramtion = $can->sendNextAffirmationToUser($row->id_user, $row->mail, $row->security, $row->genitive, $row->sex);
 
         // ZAPIS WYSŁANEJ AFIMRACJI W HISTORII UŻYTKOWNIKA
