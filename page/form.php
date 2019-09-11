@@ -1,5 +1,8 @@
 <?php
-require_once 'config/Config.php';
+
+use Mozesz\MozeszNamespace\DbConnect;
+use Mozesz\MozeszNamespace\Validate;
+use Mozesz\MozeszNamespace\Send;
 
 if (isset($_POST['send'])) {
 

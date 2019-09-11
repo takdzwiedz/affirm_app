@@ -1,11 +1,6 @@
 <?php
 
-/*
- * autor: @takdzwiedz
- * 
- * DATA VALIDATION FILE
- * 
- */
+namespace Mozesz\MozeszNamespace;
 
 class Validate
 {

@@ -1,5 +1,7 @@
 <?php
 
+namespace Mozesz\MozeszNamespace;
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -19,15 +21,15 @@ class Send
             //Server settings
             $mail->SMTPDebug = 0;                                       // Enable verbose debug output
             $mail->isSMTP();                                            // Set mailer to use SMTP
-            $mail->Host       = '';  // Specify main and backup SMTP servers
+            $mail->Host       = 'smtp-sh221499.super-host.pl';  // Specify main and backup SMTP servers
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-            $mail->Username   = '';                     // SMTP username
-            $mail->Password   = '';                               // SMTP password
+            $mail->Username   = 'a.kacprzak-local@mozesz.eu';                     // SMTP username
+            $mail->Password   = 'Niedzwiedz83';                               // SMTP password
             $mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption, `ssl` also accepted
             $mail->Port       = 465;                                    // TCP port to connect to
 
             //Recipients
-            $mail->setFrom('', '');
+            $mail->setFrom('a.kacprzak-local@mozesz.eu', 'Artur-Local');
             $mail->addAddress($email);     // Add a recipient
 
             // Attachments
@@ -40,9 +42,7 @@ class Send
             $mail->Subject = $subject;
             $mail->Body    = $message;
             $mail->AltBody = $message;
-
             $mail->send();
-
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }

@@ -1,5 +1,8 @@
 <?php
 
+namespace Mozesz\MozeszNamespace;
+
+use Mozesz\MozeszNamespace\Sex;
 
 class Text
 {

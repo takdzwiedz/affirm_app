@@ -1,8 +1,9 @@
 <?php
 
+namespace Mozesz\MozeszNamespace;
+
 class MySession
 {
-
     function __construct()
     {
         session_start();
@@ -10,14 +11,13 @@ class MySession
 
     function sessStart($login, $haslo)
     {
-
         $connect = new DbConnect();
         $request = "SELECT * FROM `user` WHERE `name` = '$login' AND `password` = '$haslo' AND `is_admin` = 1";
         $result = $connect->db->query($request);
         $catch = $result->fetch_object();
 
-        if ($result->num_rows == 1) {
-
+        if ($result->num_rows == 1)
+        {
             $_SESSION['session_id'] = session_id();
             $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
             $_SESSION['login'] = $catch->name;
@@ -26,18 +26,15 @@ class MySession
 
             header('Location:index.php?page=admin_panel');
             exit();
-
         } else {
 
             header('Location:index.php?page=login');
             exit();
         }
-
     }
 
     function sessVer()
     {
-
         if (!isset($_SESSION['is_admin'])
             || $_SESSION['session_id'] != session_id()
             || $_SESSION['ip'] != $_SERVER['REMOTE_ADDR']
@@ -45,8 +42,6 @@ class MySession
             header('Location:index.php');
             exit();
         }
-
-
     }
 
     function sessEnd()
@@ -58,6 +53,4 @@ class MySession
         header('Location:index.php');
         exit();
     }
-
-
 }

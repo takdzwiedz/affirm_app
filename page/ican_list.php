@@ -20,6 +20,8 @@
             <tbody>
             <?php
 
+            use Mozesz\MozeszNamespace\DbConnect;
+
             $connection = new DbConnect();
             $request = "SELECT * FROM `affirmation_female` ORDER BY `affirmation_female`.`id_affirmation` DESC";
             $result = $connection->db->query($request);

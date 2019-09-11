@@ -1,4 +1,7 @@
 <?php
+
+use Mozesz\MozeszNamespace\Account;
+
 $mail = htmlentities($_GET['mail']);
 $security = htmlentities($_GET['security']);
 $security_check = "SELECT `id_user` FROM `user` WHERE `mail`='$mail' AND `security`='$security' AND `is_active`=1";
@@ -6,7 +9,7 @@ $security_check = "SELECT `id_user` FROM `user` WHERE `mail`='$mail' AND `securi
 if(isset($_POST['unsubscribe'])) {
     $account = new Account();
     $account->deleteAccount($security_check);
-    header("Location:index.php?page=goodbye");
+    header("Location:/goodbye");
 }
 if (isset($_POST['istay'])) {
     header("Location:index.php");

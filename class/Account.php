@@ -1,5 +1,7 @@
 <?php
 
+namespace Mozesz\MozeszNamespace;
+
 class Account extends DbConnect
 {
     function confAccount($security_check, $mail)

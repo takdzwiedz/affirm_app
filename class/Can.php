@@ -1,11 +1,6 @@
 <?php
 
-require 'class/Card.php';
-require 'class/DbConnect.php';
-require 'class/Send.php';
-require 'class/Sex.php';
-require 'class/Text.php';
-
+namespace Mozesz\MozeszNamespace;
 
 class Can
 

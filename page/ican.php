@@ -4,8 +4,11 @@
  *
  * */
 
-
-require_once 'class/Can.php';
+use Mozesz\MozeszNamespace\Can;
+use Mozesz\MozeszNamespace\DbConnect;
+use Mozesz\MozeszNamespace\Text;
+use Mozesz\MozeszNamespace\Card;
+use Mozesz\MozeszNamespace\Send;
 
 
 if (isset($_POST['send_ican']) && !empty($_POST['ican_male']) && !empty($_POST['ican_female'])) {

@@ -13,6 +13,7 @@
 
     <tbody>
     <?php
+    use Mozesz\MozeszNamespace\DbConnect;
 
     $connection = new DbConnect();
     $request = "SELECT * FROM `user` WHERE `is_Active` = 1";

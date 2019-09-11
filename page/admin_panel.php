@@ -3,7 +3,9 @@ ob_start();
 
 require_once 'config/Config.php';
 require_once 'config/Switch.php';
-require_once 'lib/function.php';
+
+use Mozesz\MozeszNamespace\MySession;
+
 
 $sess = new MySession();
 $sess->sessVer();
@@ -15,7 +17,7 @@ if (isset ($_GET['action']) && $_GET['action'] == 'logout' && !empty($_GET['acti
 ?>
 
 <h3>Panel Administracyjny</h3>
-<a href="?page=admin_panel&action=logout">
+<a href="/">
     <button type="button">Wyloguj</button>
 </a>
 <ul class="nav nav-tabs nav-justified">
@@ -35,5 +37,4 @@ if (isset ($_GET['action']) && $_GET['action'] == 'logout' && !empty($_GET['acti
         include_once 'users.php';
         ?>
     </div>
-
 </div>

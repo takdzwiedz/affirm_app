@@ -3,7 +3,8 @@
 
     <?php
 
-    require_once 'config/Config.php';
+    use Mozesz\MozeszNamespace\Validate;
+    use Mozesz\MozeszNamespace\MySession;
 
     if (isset($_POST['login']) && isset($_POST['haslo'])) {
 

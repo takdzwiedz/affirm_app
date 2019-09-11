@@ -1,5 +1,7 @@
 <?php
 
+namespace Mozesz\MozeszNamespace;
+
 use GDText\Box;
 use GDText\Color;
 
