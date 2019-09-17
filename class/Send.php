@@ -21,12 +21,12 @@ class Send
             //Server settings
             $mail->SMTPDebug = 0;                                       // Enable verbose debug output
             $mail->isSMTP();                                            // Set mailer to use SMTP
-            $mail->Host       = 'smtp-sh221499.super-host.pl';  // Specify main and backup SMTP servers
+            $mail->Host       = '';                                     // Specify main and backup SMTP servers
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-            $mail->Username   = 'a.kacprzak-local@mozesz.eu';                     // SMTP username
-            $mail->Password   = 'Niedzwiedz83';                               // SMTP password
+            $mail->Username   = '';                                      // SMTP username
+            $mail->Password   = '';                                      // SMTP password
             $mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption, `ssl` also accepted
-            $mail->Port       = 465;                                    // TCP port to connect to
+            $mail->Port       = ;                                    // TCP port to connect to
 
             //Recipients
             $mail->setFrom('a.kacprzak-local@mozesz.eu', 'Artur-Local');
