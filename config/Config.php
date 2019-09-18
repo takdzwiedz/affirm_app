@@ -35,7 +35,10 @@ spl_autoload_register(function ($class) {
     // base directory for the namespace prefix
     $base_dir = __DIR__ . '/class/';
 
+    // Local
     $new_base_dir = strstr(__DIR__, '\\config', true). '/class/';
+    // Production
+    // $new_base_dir = strstr(__DIR__, '/config', true). '/class/';
 
     $len = strlen($prefix);
 
