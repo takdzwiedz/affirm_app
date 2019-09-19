@@ -1,28 +1,30 @@
 <?php
 
 namespace Mozesz\MozeszNamespace;
+use PDO;
 
 class Can
 
 {
     private $users;
     private $affirmations_male;
-    private $affirmations_female;
 
     public function __construct()
     {
-        $connection = new DbConnect();
+        $db = new DbConnect();
+        $con = $db->openConnection();
 
-        $request = "SELECT * FROM `user` WHERE `is_active` = 1";
-        $this->users = $connection->db->query($request);
+        $query1 = "SELECT * FROM `user` WHERE `is_active` = 1";
+        $request = $con->prepare($query1);
+        $request->execute();
+        $this->users = $request->fetchAll();
 
-        $request2 = "SELECT * FROM `affirmation_male`";
-        $response = $connection->db->query($request2);
-        $this->affirmations_male = $response->fetch_all();
+        $query2 = "SELECT * FROM `affirmation_male`";
+        $request2 = $con->prepare($query2);
+        $request2->execute();
+        $this->affirmations_male = $request2->fetchAll();
 
-
-        $request3 = "SELECT * FROM `affirmation_female`";
-        $this->affirmations_female = $connection->db->query($request3);
+        $db->closeConnection();
     }
 
     /*
@@ -42,26 +44,36 @@ class Can
     }
 
     /*
-     * Zwraca wszystkie afirmacje w rodzaju żeńskim
-     * */
-    function getAllAffirmationsFemale()
-    {
-        return $this->affirmations_female;
-    }
-
-    /*
      * Pobiera wszystkie afirmacje otrzymane przez użytkownika z historii od początku
      * */
     private function getUserAffirmations($id_user)
     {
-        $connection = new DbConnect();
+        $db = new DbConnect();
+        $con = $db->openConnection();
         $user_affirmations = array();
-        $query = "SELECT `id_affirmation`, `affirmation`, `author`, `user_rate`, am.date, am.time FROM `affirmation_male` am JOIN `history_user_affirmation` hua ON am.id_affirmation = hua.affirmation_id WHERE hua.user_id = '" . $id_user . "'";
-        $exec = $connection->db->query($query);
-        if ($exec) {
-            $user_affirmations = $exec->fetch_all();
+        $query = "  SELECT 
+                        `id_affirmation`, 
+                        `affirmation`, 
+                        `author`, 
+                        `user_rate`, 
+                        am.date, 
+                        am.time 
+                    FROM 
+                         `affirmation_male` am 
+                    JOIN `history_user_affirmation` hua 
+                    ON am.id_affirmation = hua.affirmation_id 
+                    WHERE hua.user_id = :id_user";
+
+        $rows= $con->prepare($query);
+        $rows->bindValue(':id_user', $id_user);
+        $rows->execute();
+        $result = $rows->fetchAll();
+        if ($result) {
+            $user_affirmations = $result;
         }
         // Potrzebuję tutaj wynik przeszukania tabeli affirmation_male ze wszystkimi rekordami where user = $id_user and affirmation_id z przedziału wyznaczonego przez poprzednie zapytanie
+        $db->closeConnection();
+
         return $user_affirmations;
     }
     /*
@@ -69,28 +81,33 @@ class Can
      * */
     function getLastUserAffirmations($id_user)
     {
-        $connection = new DbConnect();
+        $db = new DbConnect();
+        $con = $db->openConnection();
         $user_affirmations = array();
         $query = "SELECT 
                         `id_affirmation`, 
                         `affirmation`, 
                         `author`, 
                         `user_rate`, 
-                        am.date, 
-                        am.time, 
-                        hua.date, 
-                        hua.time 
+                        am.date as am_date, 
+                        am.time as am_time, 
+                        hua.date as hua_date, 
+                        hua.time as hua_time
                     FROM `affirmation_male` am 
                     JOIN `history_user_affirmation` hua 
                     ON am.id_affirmation = hua.affirmation_id 
-                    WHERE hua.user_id = '" . $id_user . "' 
+                    WHERE hua.user_id = :id_user
                     ORDER BY 
                         STR_TO_DATE(hua.date, '%d-%m-%Y') DESC, 
                         hua.time DESC";
-        $exec = $connection->db->query($query);
-        if ($exec) {
-            $user_affirmations = $exec->fetch_all();
+        $request = $con->prepare($query);
+        $request->bindValue(':id_user', $id_user);
+        $request->execute();
+        $result = $request->fetchAll();
+        if ($result) {
+            $user_affirmations = $result;
         }
+        $db->closeConnection();
         // Potrzebuję tutaj wynik przeszukania tabeli affirmation_male ze wszystkimi rekordami where user = $id_user and affirmation_id z przedziału wyznaczonego przez poprzednie zapytanie
         return $user_affirmations;
     }
@@ -110,10 +127,9 @@ class Can
 
         if ($sent_to_user) {
             foreach ($sent_to_user as $key => $value) {
-
-                $sent = $value[0];
+                $sent = $value['id_affirmation'];
                 foreach ($arr as $key2 => $value2) {
-                    $affirm = $value2[0];
+                    $affirm = $value2['id_affirmation'];
                     if($sent === $affirm) {
                         unset($arr[$key2]);
                     }
@@ -132,16 +148,16 @@ class Can
     function sendNextAffirmationToUser($id_user, $mail, $security, $genitive, $sex)
     {
         $send = new Send();
+
         $affirmation_left = $this->affirmationForUserToSent($id_user);
 
         // Jeśli wyczerpały się afirmację, to wyślij standardową i powiadomienie do administratora
-
         if ($affirmation_left){
-            $affirmation_id = $affirmation_left[0][0];
+            $affirmation_id = $affirmation_left[0]['id_affirmation'];
 
             // Jeśli mężczyzna to wyślij werję męską.
             if($sex === 'm') {
-                $affirmation_name = $affirmation_left[0][1];
+                $affirmation_name = $affirmation_left[0]['affirmation'];
             } else {
                 // Jesli kobieta pobierz wersję żeńską afirmacji.
                 $affirmation_name = $this->getFemaleVersionAffirmation($affirmation_id);
@@ -174,11 +190,22 @@ class Can
     {
         $date = date("d-m-Y");
         $time = date("H:i:s");
-        $connection = new DbConnect();
 
-        $query = "INSERT INTO `history_user_affirmation` SET `user_id` = '" . $user_id
-            . "', `affirmation_id` = '" . $affirmation_id . "', `date` = '" . $date . "', `time`= '" . $time . "'";
-        $connection->db->query($query);
+        $db = new DbConnect();
+        $con = $db->openConnection();
+        $query = "  INSERT INTO 
+                        `history_user_affirmation` 
+                    SET `user_id` = :user_id,
+                        `affirmation_id` = :affirmation_id,
+                        `date` = :date,
+                        `time`= :time ";
+        $request = $con->prepare($query);
+        $request->bindValue(':user_id', $user_id);
+        $request->bindValue(':affirmation_id', $affirmation_id);
+        $request->bindValue(':date', $date);
+        $request->bindValue(':time', $time);
+        $request->execute();
+        $db->closeConnection();
     }
 
     /*
@@ -187,11 +214,15 @@ class Can
      * */
     private function getFemaleVersionAffirmation($id_affirmation)
     {
-        $connection = new DbConnect();
-        $query = "SELECT * FROM `affirmation_female` WHERE `affirmation_male_id` = '" . $id_affirmation ."'";
-        $response = $connection->db->query($query);
-        $fem_affirm = $response->fetch_row();
-        $fem_affirm_name = $fem_affirm[1];
+        $db = new DbConnect();
+        $con = $db->openConnection();
+        $query = "SELECT * FROM `affirmation_female` WHERE `affirmation_male_id` = :id_affirmation";
+        $rows = $con->prepare($query);
+        $rows->bindValue(':id_affirmation', $id_affirmation);
+        $rows->execute();
+        $fem_affirm = $rows->fetch(PDO::FETCH_ASSOC);
+        $fem_affirm_name = $fem_affirm['affirmation'];
+        $db->closeConnection();
         return $fem_affirm_name;
     }
 }

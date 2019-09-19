@@ -22,18 +22,21 @@
 
             use Mozesz\MozeszNamespace\DbConnect;
 
-            $connection = new DbConnect();
-            $request = "SELECT * FROM `affirmation_female` ORDER BY `affirmation_female`.`id_affirmation` DESC";
-            $result = $connection->db->query($request);
+            $con = new DbConnect();
+            $query = "SELECT * FROM `affirmation_female` ORDER BY `affirmation_female`.`id_affirmation` DESC";
+            $db = $con->openConnection();
+            $rows = $db->prepare($query);
+            $rows->execute();
+
             $lp = 0;
-            while ($row = $result->fetch_object()) {
+            while ($row = $rows->fetch(PDO::FETCH_ASSOC)) {
                 $lp++;
                 echo
                 "<tr>
                             <th scope=\"row\">$lp</th>
-                            <td>$row->affirmation</td>
-                            <td>$row->date</td>
-                            <td>$row->time</td>
+                            <td>".$row['affirmation']."</td>
+                            <td>".$row['date']."</td>
+                            <td>".$row['time']."</td>
                         </tr>
                             ";
             }
@@ -44,7 +47,7 @@
     </div>
 
     <div id="male" class="tab-pane fade">
-        <div id="female" class="tab-pane fade in active">
+        <div id="male" class="tab-pane fade in active">
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -58,18 +61,20 @@
                 <tbody>
                 <?php
 
-                $connection = new DbConnect();
-                $request = "SELECT * FROM `affirmation_male` ORDER BY `affirmation_male`.`id_affirmation` DESC";
-                $result = $connection->db->query($request);
+                $query = "SELECT * FROM `affirmation_male` ORDER BY `affirmation_male`.`id_affirmation` DESC";
+                $rows = $db->prepare($query);
+                $rows->execute();
+                $con->closeConnection();
+
                 $lp = 0;
-                while ($row = $result->fetch_object()) {
+                while ($row = $rows->fetch(PDO::FETCH_ASSOC)) {
                     $lp++;
                     echo
-                    "<tr>
+                        "<tr>
                             <th scope=\"row\">$lp</th>
-                            <td>$row->affirmation</td>
-                            <td>$row->date</td>
-                            <td>$row->time</td>
+                            <td>".$row['affirmation']."</td>
+                            <td>".$row['date']."</td>
+                            <td>".$row['time']."</td>
                         </tr>
                             ";
                 }

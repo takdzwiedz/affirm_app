@@ -9,20 +9,25 @@ class MySession
         session_start();
     }
 
-    function sessStart($login, $haslo)
+    function sessStart($login, $pass)
     {
-        $connect = new DbConnect();
-        $request = "SELECT * FROM `user` WHERE `name` = '$login' AND `password` = '$haslo' AND `is_admin` = 1";
-        $result = $connect->db->query($request);
-        $catch = $result->fetch_object();
+        $db = new DbConnect();
+        $con = $db->openConnection();
+        $sql = "SELECT * FROM `user` WHERE `name` = :login AND `password` = :pass AND `is_admin` = 1";
+        $rows = $con->prepare($sql);
+        $rows->bindValue(':login', $login);
+        $rows->bindValue('pass', $pass);
+        $rows->execute();
+        $result = $rows->fetchObject();
+        $db->closeConnection();
 
-        if ($result->num_rows == 1)
+        if ($rows->rowCount() == 1)
         {
             $_SESSION['session_id'] = session_id();
             $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-            $_SESSION['login'] = $catch->name;
+            $_SESSION['login'] = $result->name;
             $_SESSION['client'] = $_SERVER['HTTP_USER_AGENT'];
-            $_SESSION['is_admin'] = $catch->is_admin;
+            $_SESSION['is_admin'] = $result->is_admin;
 
             header('Location:index.php?page=admin_panel');
             exit();
@@ -46,7 +51,6 @@ class MySession
 
     function sessEnd()
     {
-
         $_SESSION[] = array();
         session_regenerate_id();
         session_destroy();

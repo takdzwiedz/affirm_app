@@ -2,11 +2,14 @@
 
 namespace Mozesz\MozeszNamespace;
 
-class Account extends DbConnect
+class Account
 {
     function confAccount($security_check, $mail)
     {
-        $wynik = $this->db->query($security_check);
+        $db = new DbConnect();
+        $con = $db->openConnection();
+        $stm =$con->prepare($security_check);
+        $stm->execute();
 
         //function confAccount checks if user exist and if true ...
 
@@ -17,11 +20,13 @@ class Account extends DbConnect
             . "PS. <a href=\"https://www.youtube.com/watch?v=h5rMfLJKwIE&index=3&list=RDoImj_Wuh_UI\">Dedykacja dla Ciebie</a></p>";
 
 
-        if ($wynik->num_rows == 1) {
+        if ($stm->rowCount() == 1) {
 
             // ...activates user account
-            $user_confirmation = "UPDATE `user` SET `is_active` = 1 WHERE `mail`='$mail'";
-            $confirmation = $this->db->query($user_confirmation);
+            $query = "UPDATE `user` SET `is_active` = 1 WHERE `mail`= :mail";
+            $request = $con->prepare($query);
+            $request->bindValue(':mail', $mail);
+            $request->execute();
             // ...and send confiramtion e-mail to user
             $to = $mail;
 
@@ -32,7 +37,7 @@ class Account extends DbConnect
             $notification_mail_text = "Do projektu \"Możesz.eu - skieruj myśli ku najlepszemu\" doąłczyła nowa osoba. <br>" . "<a href='https://mysql-sh221499.super-host.pl/'>Sprawdź kto to, dodaj formę wołacza i określ, czy jest to kobieta, czy mężczyzna.</a><br>Administrator Systemu";
             $notification_mail->sendMail("a.kacprzak@mozesz.eu", "[MOŻESZ] - nowa osoba w systemie", $notification_mail_text);
 
-            if (!$confirmation) {
+            if (!$db) {
                 echo '<span style="color:orange;">Błąd potwiedzenia. Skontaktuj się ze mną.</span>';
                 die();
             }
@@ -40,6 +45,7 @@ class Account extends DbConnect
             echo '<span style="color:orange;">Konto zostało już potwierdzone lub niewłaściwe dane potwierdzenia.</span>';
             die();
         }
+        $db->closeConnection();
     }
 
     /*
@@ -47,11 +53,18 @@ class Account extends DbConnect
      * */
     function deleteAccount($security_check)
     {
-        $wynik = $this->db->query($security_check);
-        $result = $wynik->fetch_row();
-        if ($wynik->num_rows == 1) {
-            $user_delete = "DELETE FROM `user` WHERE `id_user` = '" . $result[0] . "'";
-            $this->db->query($user_delete);
+        $db = new DbConnect();
+        $con = $db->openConnection();
+        $rows =$con->prepare($security_check);
+        $rows->execute();
+        $id_user = $rows->fetch(\PDO::FETCH_ASSOC);
+        if ($rows->rowCount() == 1) {
+
+            $query = "DELETE FROM `user` WHERE `id_user` = :id_user";
+            $row = $con->prepare($query);
+            $row->bindValue(':id_user', $id_user['id_user']);
+            $row->execute();
         }
+        $db->closeConnection();
     }
 }
