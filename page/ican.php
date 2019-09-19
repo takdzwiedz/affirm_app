@@ -18,36 +18,48 @@ if (isset($_POST['send_ican']) && !empty($_POST['ican_male']) && !empty($_POST['
     $date = date("d-m-Y");
     $time = date("H:i:s");
 
-    $icanQuery = "INSERT INTO `affirmation_male`(`affirmation`, `date`, `time`) VALUES ('$ican', '$date', '$time')";
-    $connection = new DbConnect();
-    $save = $connection->db->query($icanQuery);
+    $db = new DbConnect();
+    $con = $db->openConnection();
+    $query1 = "INSERT INTO `affirmation_male`(`affirmation`, `date`, `time`) VALUES ('$ican', '$date', '$time')";
+    $request = $con->prepare($query1);
+    $request->execute();
 
     // Pobieram id affrimacji w tabeli z afirmacjami w rodzaju męskim
 
-    $lastAffirmation = "SELECT * FROM `affirmation_male` ORDER BY `affirmation_male`.`id_affirmation` DESC LIMIT 1";
-    $execute = $connection->db->query($lastAffirmation);
-    $lastAffirmDetails = $execute->fetch_object();
-    $lastAffirmId = $lastAffirmDetails->id_affirmation;
+    $query2 = "SELECT * FROM `affirmation_male` ORDER BY `affirmation_male`.`id_affirmation` DESC LIMIT 1";
+    $request2 = $con->prepare($query2);
+    $request2->execute();
+    $result = $request2->fetchObject();
+
+    $lastAffirmId = $result->id_affirmation;
 
     // Umieszczam afirmację w tabeli z afirmacjami w rodzaju żeńskim
 
-    $icanQuery = "INSERT INTO `affirmation_female`(`affirmation`, `date`, `time`, `affirmation_male_id`) VALUES ('$icanFemale', '$date', '$time', '$lastAffirmId')";
-    $save = $connection->db->query($icanQuery);
+    $query3 = "INSERT INTO `affirmation_female`(`affirmation`, `date`, `time`, `affirmation_male_id`) 
+                VALUES (:icanFemale, :date, :time, :lastAffirmId)";
+    $request3 = $con->prepare($query3);
+    $request3->execute(array(
+            ':icanFemale' => $icanFemale,
+            ':date' => $date,
+            ':time' => $time,
+            ':lastAffirmId' => $lastAffirmId
+    ));
 
     // Pobieram wszystkich użytkowników
 
-    $request = "SELECT `id_user`, `mail`, `security`, `name`, `sex`, `genitive` FROM `user` WHERE `is_active` = 1";
-    $result = $connection->db->query($request);
+    $query4 = "SELECT `id_user`, `mail`, `security`, `name`, `sex`, `genitive` FROM `user` WHERE `is_active` = 1";
+    $request4 = $con->prepare($query4);
+    $request4->execute();
 
     // Rozsyłam wszystkim użytkownikom "możesz"
 
-    while ($row = $result->fetch_object()) {
+    while ($row = $request4->fetch(PDO::FETCH_ASSOC)) {
 
-        $id_user = $row->id_user;
-        $mail = $row->mail;
-        $security = $row->security;
-        $genitive = $row->genitive;
-        $sex = $row->sex;
+        $id_user = $row['id_user'];
+        $mail = $row['mail'];
+        $security = $row['security'];
+        $genitive = $row['genitive'];
+        $sex = $row['sex'];
 
         // Warunkuję formę afirmacji w zależności od płci
 
@@ -72,6 +84,7 @@ if (isset($_POST['send_ican']) && !empty($_POST['ican_male']) && !empty($_POST['
         $save = new Can();
         $save->saveSentAffirmationInHistory($id_user, $lastAffirmId);
     }
+    $db->closeConnection();
 
     echo "<span> Brawo! <br> \"Możesz\" zostało wysłane!</span>";
 }

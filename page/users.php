@@ -15,19 +15,22 @@
     <?php
     use Mozesz\MozeszNamespace\DbConnect;
 
-    $connection = new DbConnect();
-    $request = "SELECT * FROM `user` WHERE `is_Active` = 1";
-    $result = $connection->db->query($request);
+    $db = new DbConnect();
+    $query = "SELECT * FROM `user` WHERE `is_Active` = 1";
+    $con = $db->openConnection();
+    $rows = $con->prepare($query);
+    $rows->execute();
+    $db->closeConnection();
     $lp = 0;
-    while ($row = $result->fetch_object()) {
+    while ($row = $rows->fetch(PDO::FETCH_ASSOC)) {
         $lp++;
         echo
         "<tr>
                             <th scope=\"row\">$lp</th>
-                            <td>$row->name</td>
-                            <td>$row->city</td>
-                            <td class=\"email-row\">$row->mail</td>
-                            <td>$row->date</td>
+                            <td>".$row['name']."</td>
+                            <td>".$row['city']."</td>
+                            <td class=\"email-row\">".$row['mail']."</td>
+                            <td>".$row['date']."</td>
                         </tr>
                             ";
     }

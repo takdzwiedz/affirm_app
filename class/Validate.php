@@ -37,12 +37,14 @@ class Validate
 
     function ifExist($ciag)
     {
+        $con = new DbConnect();
+        $db = $con->openConnection();
+        $query = "SELECT `id_user` FROM `user` WHERE `mail`=:ciag";
+        $rows = $db->prepare($query);
+        $rows->bindValue(':ciag', $ciag);
+        $rows->execute();
 
-        $request = "SELECT `id_user` FROM `user` WHERE `mail`='$ciag'";
-        $db = new DbConnect();
-        $result = $db->db->query($request);
-
-        if ($result->num_rows >= 1) {
+        if ($rows->rowCount() >= 1) {
             $this->addError("Podany e-mail jest już w naszej bazie");
             $this->countErrors++;
         }

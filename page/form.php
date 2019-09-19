@@ -26,13 +26,38 @@ if (isset($_POST['send'])) {
 
     //Data collection to insert to database
 
-    $db_connection = new DbConnect();
-    $insert = "INSERT INTO `user`(`name`, `city`, `mail`, `date`, `is_active`, `security`) VALUES ('$name','$city','$mail','$date','0','$security')";
+    $db = new DbConnect();
+    $con = $db->openConnection();
+    $query = "      INSERT INTO 
+                        `user`(
+                               `name`,
+                               `city`,
+                               `mail`,
+                               `date`,
+                               `is_active`,
+                               `security`)
+                    VALUES (
+                            :name,
+                            :city,
+                            :mail,
+                            :date,
+                            :is_active,
+                            :security)";
+    $stm = $con->prepare($query);
 
-    //If validation is fine new user is saved in database ...  
+    //If validation is fine new user is saved in database ...
 
     if ($validate->countErrors == 0) {
-        $save = $db_connection->db->query($insert);
+
+        $stm->execute(array(
+                ':name' => $name,
+                ':city' => $city,
+                ':mail' => $mail,
+                ':date' => $date,
+                ':is_active' => 0,
+                ':security' => $security
+        ));
+        $db->closeConnection();
 
         // ... and sends e-mail to user with request for confirmation
 
