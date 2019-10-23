@@ -1,6 +1,7 @@
 <?php
 
 namespace Mozesz\MozeszNamespace;
+
 use PDO;
 
 class Can
@@ -64,7 +65,7 @@ class Can
                     ON am.id_affirmation = hua.affirmation_id 
                     WHERE hua.user_id = :id_user";
 
-        $rows= $con->prepare($query);
+        $rows = $con->prepare($query);
         $rows->bindValue(':id_user', $id_user);
         $rows->execute();
         $result = $rows->fetchAll();
@@ -76,6 +77,7 @@ class Can
 
         return $user_affirmations;
     }
+
     /*
      * Pobiera wszystkie afirmacje otrzymane przez użytkownika z historii od początku uszeregowane od  najnowszej
      * */
@@ -130,7 +132,7 @@ class Can
                 $sent = $value['id_affirmation'];
                 foreach ($arr as $key2 => $value2) {
                     $affirm = $value2['id_affirmation'];
-                    if($sent === $affirm) {
+                    if ($sent === $affirm) {
                         unset($arr[$key2]);
                     }
                 }
@@ -152,11 +154,11 @@ class Can
         $affirmation_left = $this->affirmationForUserToSent($id_user);
 
         // Jeśli wyczerpały się afirmację, to wyślij standardową i powiadomienie do administratora
-        if ($affirmation_left){
+        if ($affirmation_left) {
             $affirmation_id = $affirmation_left[0]['id_affirmation'];
 
             // Jeśli mężczyzna to wyślij werję męską.
-            if($sex === 'm') {
+            if ($sex === 'm') {
                 $affirmation_name = $affirmation_left[0]['affirmation'];
             } else {
                 // Jesli kobieta pobierz wersję żeńską afirmacji.
